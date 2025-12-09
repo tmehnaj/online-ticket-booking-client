@@ -103,7 +103,7 @@ const Login = () => {
                                 name="email"
                                 required
                                 placeholder="Enter your Email"
-                                className="input input-bordered w-full bg-white/20 text-accent-content focus:outline-none focus:ring-2 focus:ring-blue-200 dark:text-[#1E293B]/60 rounded-3xl"
+                                className="input input-bordered w-full bg-white/20 focus:outline-none focus:ring-2 focus:ring-blue-200 rounded-3xl"
                             />
                         </div>
 
@@ -117,7 +117,7 @@ const Login = () => {
                                 placeholder="Enter Your Password"
                                 autoComplete="off"
                                 autoCorrect="off"
-                                className="input input-bordered w-full bg-white/20 text-accent-content focus:outline-none focus:ring-2 focus:ring-blue-200 dark:text-[#1E293B]/60 rounded-3xl"
+                                className="input input-bordered w-full bg-white/20 focus:outline-none focus:ring-2 focus:ring-blue-200  rounded-3xl"
                             />
 
                             <p className="hover:underline cursor-pointer" > Forget password</p>
@@ -134,7 +134,7 @@ const Login = () => {
                     {/* Google Signin */}
 
                     <GoogleLogin></GoogleLogin>
-                    <p className='py-2'>New to Our Website? Please <Link className='text-blue-700 underline' state={location?.state} to="/register">Register</Link></p>
+                    <p className='py-2'>New to Our Website? Please <Link className='text-blue-700  font-semibold underline' state={location?.state} to="/register">Register</Link></p>
                 </motion.div>
             </div>
 

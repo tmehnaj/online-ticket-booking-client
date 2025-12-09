@@ -8,6 +8,7 @@ import Login from "../Pages/Auth/Login";
 import Register from "../Pages/Auth/Register";
 import Home from "../Pages/Home/Home/Home";
 import About from "../Pages/About/About";
+import ErrorPage from "../Pages/Errors/ErrorPage";
 
 export const router = createBrowserRouter([
     {
@@ -46,5 +47,9 @@ export const router = createBrowserRouter([
             <DashboardLayout></DashboardLayout>
         </PrivateRoutes>,
        
+    },
+     {
+        path: "*",
+        element: <ErrorPage></ErrorPage>
     }
 ])

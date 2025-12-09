@@ -7,7 +7,7 @@ const AuthLayout = () => {
     return (
          <div className=' min-h-screen'>
           <Container>
-              <div className='pt-5'>
+              <div className='pt-5 flex justify-end'>
                 <Link to="/"><Logo></Logo></Link>
             </div>
             <div className='flex flex-col-reverse md:flex-row gap-5 items-center my-15'>
