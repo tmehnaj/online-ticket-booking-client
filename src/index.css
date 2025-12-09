@@ -36,7 +36,8 @@
   /* NEW GREEN VARIABLES */
   --color-soft-green: #E6F9F0;  /* very soft green background */
   --color-dark-green: #1F6F4E;  /* deep dark green */
-
+ --color-dark-blue: #1E293B;
+ --color-dark-content: #1E293B;
 }
 
 @plugin "daisyui/theme" {
@@ -75,11 +76,22 @@
   /* NEW GREEN VARIABLES */
   --color-soft-green: #0F2E1D;      /* very soft dark green */
   --color-dark-green: #17663F;      /* dark green borders */
+  --color-dark-blue: white;
+ --color-dark-content: #1E293B;
 }
 
 
 
 /* common */
+h1{
+  @apply font-extrabold text-3xl md:text-5xl 
+}
+h2{
+  @apply font-bold text-2xl md:text-3xl 
+}
+h3{
+  @apply font-bold text-xl md:text-2xl 
+}
 
 .logo{
     font-family: "TASA Orbiter", sans-serif;

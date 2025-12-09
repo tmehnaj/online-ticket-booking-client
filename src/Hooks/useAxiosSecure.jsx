@@ -30,7 +30,7 @@ const useAxiosSecure = () => {
             //     .catch()
             // }
         })
-
+   
         return () => {
             instance.interceptors.request.eject(requestInterceptors);
             instance.interceptors.response.eject(responseInterceptors);
