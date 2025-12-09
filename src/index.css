@@ -1,0 +1,110 @@
+
+@import url('https://fonts.googleapis.com/css2?family=TASA+Orbiter:wght@400..800&display=swap');
+
+
+@import "tailwindcss";
+@plugin "daisyui";
+
+
+@plugin "daisyui/theme" {
+  name: "light";
+  default: true;
+  /* Base background & text */
+   /* soft very light red */
+  --color-base-200: #FFE5E5;  /* slightly stronger soft red */
+  --color-base-300: #FFDADA;  /* a bit deeper */
+  --color-base-content: #1A202C; /* dark text (almost black) */
+
+  /* Brand Colors */
+  --color-primary: #44c781;   /* lime green (buttons, CTAs) */
+  --color-primary-content: #FFFFFF;
+
+  --color-secondary: rgba(213, 63, 63, 0.9); /* red accents */
+  --color-secondary-content: #FFFFFF;
+
+  --color-accent: #FFE5E5;    /* soft red accent */
+  --color-accent-content: #1A202C;
+
+  --color-neutral: #FFF0F0;   /* very light neutral red */
+
+  /* Feedback Colors */
+  --color-info: #63B3ED;      /* blue info */
+  --color-success: #38A169;   /* green message success */
+  --color-warning: #ED8936;   /* orange */
+  --color-error: #FEB2B2;     /* soft red error */
+
+  /* NEW GREEN VARIABLES */
+  --color-soft-green: #E6F9F0;  /* very soft green background */
+  --color-dark-green: #1F6F4E;  /* deep dark green */
+
+}
+
+@plugin "daisyui/theme" {
+  name: "dark";
+  default: true;
+  
+/* main background */
+  --color-base-200: #1F2937; /* card background */
+  --color-base-300: #374151; /* slight contrast */
+  --color-base-content: #F9FAFB; /* white text */
+
+  --color-primary: #44c781;         /* lime green buttons */
+  --color-primary-content: #0A0A0A;
+
+  --color-secondary: rgba(213, 63, 63, 0.9);       /* bright red accents */
+  --color-secondary-content: #0A0A0A;
+
+  --color-accent: #7B2A2A;          /* muted dark red accent */
+  --color-accent-content: #F9FAFB;
+
+  --color-neutral: #1A202C;         /* dark neutral areas */
+  --color-neutral-content: #F9FAFB;
+
+  --color-info: #63B3ED;            /* info blue */
+  --color-info-content: #0A0A0A;
+
+  --color-success: #48BB78;         /* green success */
+  --color-success-content: #0A0A0A;
+
+  --color-warning: #ED8936;         /* orange warning */
+  --color-warning-content: #0A0A0A;
+
+  --color-error: #FC8181;           /* light red error */
+  --color-error-content: #0A0A0A;
+
+  /* NEW GREEN VARIABLES */
+  --color-soft-green: #0F2E1D;      /* very soft dark green */
+  --color-dark-green: #17663F;      /* dark green borders */
+}
+
+
+
+/* common */
+
+.logo{
+    font-family: "TASA Orbiter", sans-serif;
+}
+
+.btn1{
+  @apply px-3 py-1  sm:px-4.5 sm:py-1.5 rounded-3xl border border-secondary hover:border-[#d53f3f] bg-secondary hover:bg-[#d53f3f] font-bold text-white text-lg whitespace-nowrap transition-all duration-300 ease-in-out
+}
+.btn2{
+  @apply px-3 py-1 sm:px-4.5 sm:py-1.5  rounded-3xl border-3 border-secondary hover:bg-secondary hover:text-white font-bold text-lg whitespace-nowrap text-base-content  transition-all duration-300 ease-in-out
+}
+
+/* for element */
+nav a  li{
+  @apply text-base-content font-semibold px-2 py-2 mr-3 transition-all duration-300 ease-in-out
+}
+
+nav a.active li{
+  @apply bg-secondary rounded-3xl px-2 py-2 text-white
+}
+
+nav a li:hover {
+  @apply bg-secondary  rounded-3xl px-2 py-2 text-white
+}
+
+/* body{
+    background-color: #d53f3f;
+} */
