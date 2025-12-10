@@ -29,6 +29,9 @@ const AuthProvider = ({ children }) => {
         setLoading(true);
         return updateProfile(auth.currentUser, userData);
     }
+
+
+
     // sign in or signup with google
     const googleSignIn = () => {
         setLoading(true);
@@ -71,6 +74,7 @@ const AuthProvider = ({ children }) => {
         updateUserProfile,
         googleSignIn,
         passwordReset,
+       
     }
 
     return (

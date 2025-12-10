@@ -1,9 +1,12 @@
-import React, { useContext, useState } from 'react';
-import { Link, useNavigate } from 'react-router';
+import React, { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router';
 import { motion } from "framer-motion";
-import { AuthContext } from '../../Providers/AuthContext';
-import toast from 'react-hot-toast';
 import GoogleLogin from './SocialLogin/GoogleLogin';
+import { useForm } from 'react-hook-form';
+import useAuth from '../../Hooks/useAuth';
+import axios from 'axios';
+import useAxiosSecure from '../../Hooks/useAxiosSecure';
+import { toast } from 'react-toastify';
 
 const cardAnimation = {
     hidden: { opacity: 0, y: 50 },
@@ -12,47 +15,68 @@ const cardAnimation = {
 
 
 const Register = () => {
-    const [error, setError] = useState('');
-    // const [eye,setEye] = useState(false);
-    const { createUser, setUser, setLoading, user } = useContext(AuthContext);
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { createUser, setLoading, user, updateUserProfile, setUser } = useAuth();
+    const axiosSecure = useAxiosSecure();
     const navigate = useNavigate();
-    // const location = useLocation();
+    const location = useLocation();
 
-     if (user) {
-   return navigate(location?.state || '/');
-  }
+    if (user) {
+        return navigate(location?.state || '/');
+    }
 
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        //  console.log(e.target);
-        const name = e.target.name.value;
-        const photo = e.target.photo.value;
-        const email = e.target.email.value;
-        const password = e.target.password.value;
+    const handleRegister = data => {
+        // console.log(data);
+        const imageFile = data.photo[0];
 
-        if (name.trim().length > 30) {
-            setError('Name cannot be longer than 30 characters');
-            return;
-        }
-        //clean
-        setError('');
-
-        //regular expression for password
-        // const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
-
-        // if (!passwordPattern.test(password)) {
-        //   setError('Password must be at least 6 characters long and include at least one uppercase letter, one lowercase letter');
-        //   return;
-        // }
-        createUser(email, password)
+        createUser(data.email, data.password)
             .then(result => {
-                const newUser = result.user;
-                setUser(newUser);
-                // setLoading(false);
-                toast.success('Your account has been created successfully!');
-                e.target.reset();
-                navigate('/');
+                console.log("after create user", result);
+                //store image in formdata and get the link
+                const formData = new FormData();
+                formData.append('image', imageFile);
+
+                const image_API_URL = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_host_key}`
+
+                axios.post(image_API_URL, formData)
+                    .then(res => {
+                        // console.log('after axios',res.data.data.url);
+                        //update profile
+                        const updateProfile = {
+                            displayName: data.name,
+                            photoURL: res.data.data.url
+                        }
+
+
+                        //put user in database
+                        const userInfo = {
+                            displayName: data.name,
+                            email: data.email,
+                            photoURL: res.data.data.url,
+                        }
+                        // axiosSecure.post('/users', userInfo)
+                        //     .then(res => {
+                        //         // console.log('users after post',res.data);
+                        //         if (res.data.insertedId) {
+                        //             console.log('user is stored in database');
+                        //         }
+                        //     })
+
+
+                        updateUserProfile(updateProfile)
+                            .then(() => {
+                                console.log('user profile updated successfully');
+                                setUser({ ...user, ...updateProfile });
+                                setLoading(false);
+                                toast.success('registration successful!');
+                                navigate(location?.state || "/");
+                            })
+                            .catch(err => {
+                                console.log(err)
+                            })
+                    })
+
             })
             .catch(err => {
                 let errorMessage = err.message;
@@ -73,20 +97,6 @@ const Register = () => {
     }
 
 
-
-    //   const handleEmailOnChange = (e) => {
-    //     const email = e.target.value;
-    //     const regxForEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    //     if (!email.trim()) {
-    //       setError('Email is required');
-    //     } else if (!regxForEmail.test(email)) {
-    //       setError('Please enter a valid email');
-    //     } else {
-    //       setError('');
-    //     }
-    //   }
-
-
     return (
         <div className="my-10  relative overflow-hidden">
             <title>Sign Up</title>
@@ -103,29 +113,39 @@ const Register = () => {
 
                     <h2 className="mb-2 text-center drop-shadow-sm py-2">SignUp Now</h2>
 
-                    <form onSubmit={handleSubmit} className="space-y-4">
+                    <form onSubmit={handleSubmit(handleRegister)} className="space-y-4">
 
                         {/* name field */}
                         <div>
                             <label className="block text-sm mb-1">Name</label>
                             <input
                                 type="text"
-                                name="name"
                                 placeholder="Your Name"
                                 className="input input-bordered w-full bg-white/20 focus:outline-none focus:ring-2 focus:ring-blue-200 rounded-3xl"
+                                {...register("name", { required: true })}
                             />
+                            {errors.name?.type === 'required' && <p className='text-error'>Name is required</p>}
                         </div>
 
 
- {/* image field */}
+                        {/* image field */}
                         <div>
                             <label className="block text-sm mb-1">Upload Image</label>
                             <input
                                 type="file"
-                                name="Upload Image"
                                 placeholder="Image"
                                 className="file-input input-bordered w-full bg-white/20 text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-200  rounded-3xl placeholder-blue"
+
+                                {...register("photo", {
+                                    required: "Image is required",
+                                    validate: {
+                                        fileType: value => ["image/jpeg", "image/png"].includes(value[0]?.type) || "Only JPG or PNG allowed",
+
+                                        fileSize: value => value[0]?.size < 2 * 1024 * 1024 || "Max file size is 2MB",
+                                    }
+                                })}
                             />
+                            {errors.photo && <p className='text-error'>{errors.photo.message}</p>}
                         </div>
 
 
@@ -133,34 +153,37 @@ const Register = () => {
                         <div>
                             <label className="block text-sm mb-1">Email</label>
                             <input
-                                // onChange={handleEmailOnChange}
                                 type="email"
-                                name="email"
-                                required
                                 placeholder="Enter your Email"
                                 className="input input-bordered w-full bg-white/20  focus:outline-none focus:ring-2 focus:ring-blue-200  rounded-3xl"
+                                {...register("email", { required: true })}
                             />
+                            {errors.email?.type === 'required' && <p className='text-error'>Email is required</p>}
                         </div>
 
 
                         <div className="relative">
                             <label className="block text-sm mb-1">Password</label>
                             <input
-                                // type={show ? "text" : "password"}
                                 type='password'
-                                name="password"
-                                required
                                 placeholder="Enter Your Password"
-                                autoComplete="off"
-                                autoCorrect="off"
                                 className="input input-bordered w-full bg-white/20  focus:outline-none focus:ring-2 focus:ring-blue-200  rounded-3xl"
+                                {...register("password", {
+                                    required: true,
+                                    minLength: 6,
+                                    pattern: /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/
+                                }
+                                )}
                             />
-                            {/* <span
-                                   onClick={() => setShow(!show)}
-                                   className="absolute right-3 top-9 cursor-pointer z-50"
-                               >
-                                   {show ? <FaEye /> : <IoEyeOff />}
-                               </span> */}
+                            {errors.password?.type === 'required' && <p className='text-error'>Password is required</p>}
+                            {
+                                errors.password?.type === 'minLength' && <p className='text-error'>Password must have 6 characters</p>
+                            }
+                            {
+                                errors.password?.type === 'pattern' && <p className='text-error'>Password must have at least one capital letter, one small letter.</p>
+                            }
+
+
 
                         </div>
 

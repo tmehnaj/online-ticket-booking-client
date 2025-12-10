@@ -31,7 +31,7 @@ const About = () => {
             <Container>
                 <div class=" shadow-xl rounded-2xl text-center p-5 md:p-10 backdrop-blur-lg ">
                     <h2 className='drop-shadow-lg pb-5 text-dark-blue'>Who We Are?</h2>
-                    <div className='text-base pb-6'>
+                    <div className='text-base pb-6 '>
                         <p>
                             Welcome to TicketBari, your trusted digital partner for buying travel tickets easily, safely, and quickly.
                             We created this platform to make your journey smoother—whether you’re traveling by bus, train, or launch.
@@ -45,16 +45,16 @@ const About = () => {
                          <h2 className='drop-shadow-lg pb-5 text-dark-blue'>Our Mission</h2>
                     <div className='text-base pb-6'>
                        {
-                        mission.map(term=> <div className='bg-neutral shadow-sm rounded-2xl p-6 text-left mb-5'>
-                            <h4 className='text-dark-blue mb-2'>{term.title}</h4>
-                            <p>{term.details}</p>
+                        mission.map(term=> <div className='bg-[#FFE5E5] shadow-sm rounded-2xl p-6 text-left mb-5'>
+                            <h4 className='text-[#1E293B] mb-2'>{term.title}</h4>
+                            <p className='text-accent-content'>{term.details}</p>
                         </div>)
                        }
                     </div>
                     </div>
 
 
-                    <div className="border-3 border-secondary rounded-lg p-6 bg-white text-base-content space-y-1">
+                    <div className="border-3 border-secondary rounded-lg p-6 bg-base-100 text-base-content space-y-1">
                         <h2 className='pb-1 text-dark-blue'>Contact Information</h2>
                         <p ><strong>Email:</strong> <a href="" className=" hover:underline">ticket_bari@gmail.com</a></p>
                         <p><strong>Phone:</strong> +8801700000000</p>

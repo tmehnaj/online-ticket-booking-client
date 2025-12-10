@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../../Providers/AuthContext';
 import { Link, NavLink, useNavigate } from 'react-router';
-import toast from 'react-hot-toast';
 import { FaUserCircle } from 'react-icons/fa';
 import { IoSunnySharp } from 'react-icons/io5';
 import { MdDarkMode } from 'react-icons/md';
 import Logo from '../Logo/Logo';
 import Container from '../Container';
 import { ThemeContext } from '../../../Providers/ThemeContext';
+import { toast } from 'react-toastify';
 
 const Navbar = () => {
 
@@ -119,10 +119,10 @@ const Navbar = () => {
   >
     {/* Profile Info */}
     <div className="border-b border-info-content pb-5">
-      <p className="text-lg font-semibold text-neutral-content">
+      <p className="text-lg font-semibold text-[#1E293B]">
         {user?.displayName || 'Update Profile'}
       </p>
-      <p className="text-sm text-info-content break-all mt-1">
+      <p className="text-sm text-accent-content break-all mt-1">
         {user?.email}
       </p>
     </div>
@@ -134,7 +134,7 @@ const Navbar = () => {
           Profile
         </button></Link>
 
-        <button onClick={handleLogOut} className="w-full general-btn">
+        <button onClick={handleLogOut} className="w-full btn1">
           Logout
         </button>
       </div>

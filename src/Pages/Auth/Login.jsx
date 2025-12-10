@@ -1,11 +1,11 @@
-import React, { useContext, useState } from 'react';
+import React from 'react';
 import { Link, Navigate, useLocation, useNavigate } from 'react-router';
-
 import { FcGoogle } from 'react-icons/fc';
 import { motion } from "framer-motion";
-import toast from 'react-hot-toast';
 import GoogleLogin from './SocialLogin/GoogleLogin';
-import { AuthContext } from '../../Providers/AuthContext';
+import { useForm } from 'react-hook-form';
+import { toast } from 'react-toastify';
+import useAuth from '../../Hooks/useAuth';
 
 const cardAnimation = {
     hidden: { opacity: 0, y: 50 },
@@ -13,44 +13,21 @@ const cardAnimation = {
 };
 
 const Login = () => {
-    const { signInUser, setUser, setLoading, user} = useContext(AuthContext);
-    const [error, setError] = useState('');
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { signInUser, setLoading, user } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
-    //   const emailRef = useRef();
 
-  if (user) {
-   return navigate(location?.state || '/');
-  }
+    if (user) {
+        return navigate(location?.state || '/');
+    }
 
+    const handleLogIn = (data) => {
 
-    //  const handleEmailOnChange = (e) => {
-    //     const email = e.target.value;
-    //     const regxForEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    //     if (!email.trim()) {
-    //         setError('Email is required');
-    //     } else if (!regxForEmail.test(email)) {
-    //         setError('Please enter a valid email');
-    //     } else {
-    //         setError('');
-    //     }
-    // }
-
-
-
-
-    const handleLogIn = (e) => {
-        e.preventDefault();
-        const email = e.target.email.value;
-        const password = e.target.password.value;
-        //clean
-        setError('');
-        signInUser(email, password)
+        signInUser(data.email, data.password)
             .then(result => {
-                const loggedInUser = result.user;
-                setUser(loggedInUser);
+
                 toast.success('Log In Successfully!');
-                e.target.reset();
                 navigate(location?.state || '/');
             })
             .catch(err => {
@@ -98,42 +75,45 @@ const Login = () => {
 
                     <h2 className="mb-2 text-center drop-shadow-sm py-2">LogIn Now</h2>
 
-                    <form onSubmit={handleLogIn} className="space-y-4">
+                    <form onSubmit={handleSubmit(handleLogIn)} className="space-y-4">
                         <div>
                             <label className="block text-sm mb-1">Email</label>
                             <input
-                                // onChange={handleEmailOnChange}
                                 type="email"
-                                name="email"
-                                required
                                 placeholder="Enter your Email"
                                 className="input input-bordered w-full bg-white/20 focus:outline-none focus:ring-2 focus:ring-blue-200 rounded-3xl"
+                                {...register("email", { required: true })}
                             />
+                            {errors.email?.type === 'required' && <p className='text-error'>Email is required</p>}
                         </div>
 
-                        <div className="relative">
+                        <div>
                             <label className="block text-sm mb-1">Password</label>
                             <input
-                                // type={show ? "text" : "password"}
                                 type='password'
-                                name="password"
-                                required
                                 placeholder="Enter Your Password"
-                                autoComplete="off"
-                                autoCorrect="off"
                                 className="input input-bordered w-full bg-white/20 focus:outline-none focus:ring-2 focus:ring-blue-200  rounded-3xl"
+                                {...register("password", {
+                                    required: true,
+                                    minLength: 6,
+                                    pattern: /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/
+                                }
+                                )}
                             />
+                            {errors.password?.type === 'required' && <p className='text-error'>Password is required</p>}
+                            {
+                                errors.password?.type === 'minLength' && <p className='text-error'>Password must have 6 characters</p>
+                            }
+                            {
+                                errors.password?.type === 'pattern' && <p className='text-error'>Password must have at least one capital letter, one small letter.</p>
+                            }
 
                             <p className="hover:underline cursor-pointer" > Forget password</p>
                         </div>
 
                         <button type='submit' className="btn1 w-full">Login</button>
 
-
                     </form>
-
-
-
 
                     {/* Google Signin */}
 
