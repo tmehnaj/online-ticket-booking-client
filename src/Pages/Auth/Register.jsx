@@ -104,7 +104,7 @@ const Register = () => {
 
 
                 <motion.div
-                    className="max-w-md backdrop-blur-lg border-3 border-secondary shadow-2xl rounded-3xl p-8"
+                    className=" backdrop-blur-lg border-3 border-secondary shadow-2xl rounded-3xl p-8"
                     variants={cardAnimation}
                     initial="hidden"
                     whileInView="visible"

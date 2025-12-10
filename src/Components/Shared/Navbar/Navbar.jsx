@@ -1,5 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
-import { AuthContext } from '../../../Providers/AuthContext';
+import React, {  useContext } from 'react';
 import { Link, NavLink, useNavigate } from 'react-router';
 import { FaUserCircle } from 'react-icons/fa';
 import { IoSunnySharp } from 'react-icons/io5';
@@ -8,10 +7,11 @@ import Logo from '../Logo/Logo';
 import Container from '../Container';
 import { ThemeContext } from '../../../Providers/ThemeContext';
 import { toast } from 'react-toastify';
+import useAuth from '../../../Hooks/useAuth';
 
 const Navbar = () => {
 
-  const { user, logOutUser, setLoading, loading } = useContext(AuthContext);
+  const { user, logOutUser, setLoading, loading } = useAuth();
   const navigate = useNavigate();
   const { theme, handleChangeTheme } = useContext(ThemeContext);
 
@@ -33,9 +33,11 @@ const Navbar = () => {
   const links = <>
     <NavLink to='/'><li className="px-2 pb-0.5 border-b-2 border-transparent">Home</li></NavLink>
     <NavLink to='/about'><li className="px-2 pb-0.5 border-b-2 border-transparent">About</li></NavLink>
-    {user && (
+    {
+    user && (
       <>
-        <NavLink to='/myHabits'><li className="px-2 pb-0.5 border-b-2 border-transparent">My Habits</li></NavLink>
+         <NavLink to='/all-tickets'><li className="px-2 pb-0.5 border-b-2 border-transparent">All Tickets</li></NavLink>
+         <NavLink to='/dashboard'><li className="px-2 pb-0.5 border-b-2 border-transparent">Dashboard</li></NavLink>
      
       </>
     )
@@ -101,14 +103,16 @@ const Navbar = () => {
   <div
     tabIndex={0}
     role="button"
-    className="btn btn-ghost btn-circle avatar hover:opacity-90 transition"
+    className="btn btn-ghost btn-circle avatar hover:opacity-90 transition tooltip tooltip-bottom tooltip-primary z-50"
+    data-tip={`${user?.displayName || 'user name'}`}
   >
-    <div className="w-10 h-10 rounded-full overflow-hidden border border-gray-300">
+    <div className="w-10 h-10 rounded-full overflow-hidden border border-gray-300 ">
       <img
         src={user?.photoURL || <FaUserCircle />}
         alt="User avatar"
         referrerPolicy="no-referrer"
-        className="object-cover w-full h-full"
+        className="object-cover w-full h-full "
+
       />
     </div>
   </div>
@@ -130,7 +134,7 @@ const Navbar = () => {
     {/* Buttons Side-by-Side */}
     <div>
       <div className="grid grid-cols-2 gap-3 ">
-        <Link><button className="w-full btn2">
+        <Link><button className="w-full btn3">
           Profile
         </button></Link>
 

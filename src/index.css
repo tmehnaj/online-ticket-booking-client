@@ -17,10 +17,10 @@
 
   /* Brand Colors */
   --color-primary: #44c781;   /* lime green (buttons, CTAs) */
-  --color-primary-content: #FFFFFF;
+  --color-primary-content: #e5e7eb;
 
   --color-secondary: rgba(213, 63, 63, 0.9); /* red accents */
-  --color-secondary-content: #FFFFFF;
+  --color-secondary-content: #f3f4f6;
 
   --color-accent: #FFE5E5;    /* soft red accent */
   --color-accent-content: #1A202C;
@@ -37,7 +37,8 @@
   --color-soft-green: #E6F9F0;  /* very soft green background */
   --color-dark-green: #1F6F4E;  /* deep dark green */
  --color-dark-blue: #1E293B;
- --color-dark-content: #1E293B;
+ --color-dark-content: black;
+
 }
 
 @plugin "daisyui/theme" {
@@ -50,15 +51,15 @@
   --color-base-content: #F9FAFB; /* white text */
 
   --color-primary: #44c781;         /* lime green buttons */
-  --color-primary-content: #0A0A0A;
+  --color-primary-content: #374151;
 
   --color-secondary: rgba(213, 63, 63, 0.9);       /* bright red accents */
-  --color-secondary-content: #0A0A0A;
+  --color-secondary-content: #9ca3af;
 
   --color-accent: #7B2A2A;          /* muted dark red accent */
   --color-accent-content: #1A202C;
 
-  --color-neutral: #1A202C;         /* dark neutral areas */
+  --color-neutral: #16284e;         /* dark neutral areas */
   --color-neutral-content: #F9FAFB;
 
   --color-info: #63B3ED;            /* info blue */
@@ -77,7 +78,8 @@
   --color-soft-green: #0F2E1D;      /* very soft dark green */
   --color-dark-green: #17663F;      /* dark green borders */
   --color-dark-blue: white;
- --color-dark-content: #1E293B;
+ --color-dark-content: white;
+
 }
 
 
@@ -107,6 +109,9 @@ h4{
 .btn2{
   @apply px-3 py-1 sm:px-4.5 sm:py-1.5  rounded-3xl border-3 border-secondary hover:bg-secondary hover:text-white font-bold text-lg whitespace-nowrap text-base-content  transition-all duration-300 ease-in-out
 }
+.btn3{
+  @apply px-3 py-1 sm:px-4.5 sm:py-1.5  rounded-3xl border-3 border-secondary hover:bg-secondary hover:text-white font-bold text-lg whitespace-nowrap text-[#1A202C]  transition-all duration-300 ease-in-out
+}
 
 /* for element */
 nav a  li{
@@ -120,7 +125,7 @@ nav a.active li{
 nav a li:hover {
   @apply bg-secondary  rounded-3xl px-2 py-2 text-white
 }
-
-/* body{
+/* 
+body{
     background-color: #d53f3f;
 } */

@@ -10,7 +10,7 @@ import { BsStripe } from 'react-icons/bs';
 
 const Footer = () => {
     return (
-               <footer className=" bg-gray-100 text-black font-semibold ">
+               <footer className=" bg-neutral text-dark-content font-semibold ">
   <Container>
     <div className='footer sm:footer-horizontal px-9 py-12  text-center md:text-left'>
     <aside className='flex flex-col  text-left'>
@@ -50,7 +50,7 @@ const Footer = () => {
 
    
   <Container>
-    <div className='px-10 py-8 flex flex-col items-center gap-3 text-xs  text-black font-normal'>
+    <div className='px-10 py-8 flex flex-col items-center gap-3 text-xs  text-dark-content font-normal'>
         <nav>
     <div className="flex gap-4 ">
       <a>
