@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaBus } from 'react-icons/fa';
-
+    
 const Logo = () => {
     return (
         <div className='flex gap-2 items-center'>
