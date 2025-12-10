@@ -14,9 +14,14 @@ const cardAnimation = {
 const Register = () => {
     const [error, setError] = useState('');
     // const [eye,setEye] = useState(false);
-    const { createUser, setUser, googleSignIn, setLoading } = useContext(AuthContext);
+    const { createUser, setUser, setLoading, user } = useContext(AuthContext);
     const navigate = useNavigate();
     // const location = useLocation();
+
+     if (user) {
+   return navigate(location?.state || '/');
+  }
+
 
     const handleSubmit = (e) => {
         e.preventDefault();

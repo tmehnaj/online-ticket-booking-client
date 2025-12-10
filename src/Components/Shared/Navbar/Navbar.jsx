@@ -7,12 +7,13 @@ import { IoSunnySharp } from 'react-icons/io5';
 import { MdDarkMode } from 'react-icons/md';
 import Logo from '../Logo/Logo';
 import Container from '../Container';
+import { ThemeContext } from '../../../Providers/ThemeContext';
 
 const Navbar = () => {
 
   const { user, logOutUser, setLoading, loading } = useContext(AuthContext);
   const navigate = useNavigate();
-  const [theme,setTheme] = useState(localStorage.getItem('theme') || "light");
+  const { theme, handleChangeTheme } = useContext(ThemeContext);
 
 
   const handleLogOut = (e) => {
@@ -25,19 +26,6 @@ const Navbar = () => {
       .catch(err => {
          console.log(err);
       })
-  }
-
-   //theme change
-
-    useEffect(() => {
-    const html = document.querySelector('html')
-     html.setAttribute("data-theme", theme)
-     localStorage.setItem("theme", theme)
-  }, [theme])
-  
-  const handleChangeTheme = ()=>{
-    const currentTheme = theme === 'dark' ? 'light' : 'dark';
-    setTheme(currentTheme);
   }
 
   

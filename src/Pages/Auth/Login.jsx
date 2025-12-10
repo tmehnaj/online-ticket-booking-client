@@ -13,11 +13,15 @@ const cardAnimation = {
 };
 
 const Login = () => {
-    const { signInUser, googleSignIn, setUser, setLoading } = useContext(AuthContext);
+    const { signInUser, setUser, setLoading, user} = useContext(AuthContext);
     const [error, setError] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
     //   const emailRef = useRef();
+
+  if (user) {
+   return navigate(location?.state || '/');
+  }
 
 
     //  const handleEmailOnChange = (e) => {

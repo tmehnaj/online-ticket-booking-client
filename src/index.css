@@ -93,6 +93,10 @@ h3{
   @apply font-bold text-xl md:text-2xl 
 }
 
+h4{
+   @apply font-bold text-sm md:text-lg 
+}
+
 .logo{
     font-family: "TASA Orbiter", sans-serif;
 }
@@ -106,7 +110,7 @@ h3{
 
 /* for element */
 nav a  li{
-  @apply text-base-content font-semibold px-2 py-2 mr-3 transition-all duration-300 ease-in-out
+  @apply text-base-content font-semibold px-2 py-2 mr-3 transition-all duration-400 ease-in-out
 }
 
 nav a.active li{

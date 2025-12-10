@@ -14,7 +14,7 @@ export default function Rotate() {
     alignItems: 'center',
     color: 'white'
 };
-
+   
     return (
        <div className='container mx-auto flex justify-center items-center min-h-screen text-accent-content'>
          <span className='text-5xl font-bold '>L</span><motion.div
