@@ -1,9 +1,11 @@
 import React from 'react';
 import useAuth from '../../../Hooks/useAuth';
 import { FaUserCircle } from 'react-icons/fa';
+import useRole from '../../../Hooks/useRole';
 
 const Profile = () => {
     const { user } = useAuth();
+    const { role } = useRole();
     
     return (
          <div className=' flex items-center justify-center my-40 px-2'>
@@ -18,7 +20,7 @@ const Profile = () => {
                     <p><span className='font-bold'>Name:</span> {user?.displayName || 'Update Profile'}</p>
                     <p><span className='font-bold'>Email</span> {user?.email || user?.providerData[0]?.email || user?.providerData[0]?.uid}</p>
                     <p>
-                        <span className='font-bold'>Role:</span> <strong></strong>
+                        <span className='font-bold'>Role:</span> <strong>{role}</strong>
                     </p>
                 </div>
             </div>

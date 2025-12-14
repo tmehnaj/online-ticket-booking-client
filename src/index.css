@@ -25,7 +25,7 @@
   --color-accent: #FFE5E5;    /* soft red accent */
   --color-accent-content: #1A202C;
 
-  --color-neutral: #FFF0F0;   /* very light neutral red */
+  --color-neutral: white;   /* very light neutral red #FFF0F0*/
 
   /* Feedback Colors */
   --color-info: #63B3ED;      /* blue info */
@@ -59,7 +59,7 @@
   --color-accent: #7B2A2A;          /* muted dark red accent */
   --color-accent-content: #1A202C;
 
-  --color-neutral: #16284e;         /* dark neutral areas */
+  --color-neutral: #1F2937;         /* dark neutral areas */
   --color-neutral-content: #F9FAFB;
 
   --color-info: #63B3ED;            /* info blue */
@@ -113,6 +113,13 @@ h4{
   @apply px-3 py-1 sm:px-4.5 sm:py-1.5  rounded-3xl border-3 border-secondary hover:bg-secondary hover:text-white font-bold text-lg whitespace-nowrap text-[#1A202C]  transition-all duration-300 ease-in-out
 }
 
+.card-btn{
+    @apply px-3 py-1  sm:px-4.5 sm:py-1.5 rounded-3xl border-3 border-primary hover:border-[#36ac6d] bg-primary hover:bg-[#36ac6d] font-bold text-[#1A202C] text-lg whitespace-nowrap transition-all duration-300 ease-in-out
+}
+
+.scale {
+  @apply transition-transform duration-300 ease-in-out hover:-translate-y-1 hover:scale-105
+}
 /* for element */
 nav a  li{
   @apply text-base-content font-semibold px-2 py-2 mr-3 transition-all duration-600 ease-in-out
@@ -125,7 +132,7 @@ nav a.active li{
 nav a li:hover {
   @apply bg-secondary  rounded-3xl px-2 py-2 text-white
 }
-/* 
-body{
-    background-color: #d53f3f;
+
+/* body{
+    background-color: #d6d6d6;
 } */

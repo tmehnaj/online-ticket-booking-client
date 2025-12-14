@@ -134,7 +134,7 @@ const Navbar = () => {
     {/* Buttons Side-by-Side */}
     <div>
       <div className="grid grid-cols-2 gap-3 ">
-        <Link><button className="w-full btn3">
+        <Link to="/dashboard/profile" ><button className="w-full btn3">
           Profile
         </button></Link>
 

@@ -10,7 +10,7 @@ import { BsStripe } from 'react-icons/bs';
 
 const Footer = () => {
     return (
-               <footer className=" bg-neutral text-dark-content font-semibold ">
+               <footer className=" bg-primary-content text-dark-content font-semibold ">
   <Container>
     <div className='footer sm:footer-horizontal px-9 py-12  text-center md:text-left'>
     <aside className='flex flex-col  text-left'>
@@ -24,7 +24,7 @@ const Footer = () => {
   <nav>
     <h6 className="footer-title font-bold text-base">Quick Links</h6>
     <Link to="/" className="link link-hover text-base">Home</Link>
-    <Link className="link link-hover text-base">All Tickets</Link>
+    <Link to='/all-tickets' className="link link-hover text-base">All Tickets</Link>
     <Link className="link link-hover text-base">Contact Us</Link>
     <Link to="/about" className="link link-hover text-base">About</Link>
   </nav>

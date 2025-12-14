@@ -11,7 +11,7 @@ const AuthLayout = () => {
               <div className='pt-5 flex justify-end'>
                 <Link to="/"><Logo></Logo></Link>
             </div>
-            <div className='flex flex-col-reverse lg:flex-row-reverse gap-5 sm:gap-8 md:gap-10 items-center justify-center my-20 '>
+            <div className='flex flex-col-reverse lg:flex-row-reverse gap-5 sm:gap-8 md:gap-20 items-center justify-center my-20 '>
                 <div className='w-full max-w-md'>
                     <Outlet></Outlet>
                 </div>

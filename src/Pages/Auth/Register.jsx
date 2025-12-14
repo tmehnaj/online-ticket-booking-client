@@ -55,13 +55,13 @@ const Register = () => {
                             email: data.email,
                             photoURL: res.data.data.url,
                         }
-                        // axiosSecure.post('/users', userInfo)
-                        //     .then(res => {
-                        //         // console.log('users after post',res.data);
-                        //         if (res.data.insertedId) {
-                        //             console.log('user is stored in database');
-                        //         }
-                        //     })
+                        axiosSecure.post('/users', userInfo)
+                            .then(res => {
+                                // console.log('users after post',res.data);
+                                if (res.data.insertedId) {
+                                    console.log('user is stored in database');
+                                }
+                            })
 
 
                         updateUserProfile(updateProfile)
@@ -122,9 +122,14 @@ const Register = () => {
                                 type="text"
                                 placeholder="Your Name"
                                 className="input input-bordered w-full bg-white/20 focus:outline-none focus:ring-2 focus:ring-blue-200 rounded-3xl"
-                                {...register("name", { required: true })}
+                                {...register("name", { required: 'name is required',
+                                    maxLength:{
+                                        value: 20,
+                                        message: 'name cannot greater than 20 characters'
+                                    }
+                                 })}
                             />
-                            {errors.name?.type === 'required' && <p className='text-error'>Name is required</p>}
+                            {errors.name && <p className='text-error'>{errors.name.message}</p>}
                         </div>
 
 
@@ -156,9 +161,14 @@ const Register = () => {
                                 type="email"
                                 placeholder="Enter your Email"
                                 className="input input-bordered w-full bg-white/20  focus:outline-none focus:ring-2 focus:ring-blue-200  rounded-3xl"
-                                {...register("email", { required: true })}
+                                {...register("email", { 
+                                    required: 'email is required',
+                                pattern:{
+                                    value:/^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
+                                    message: 'enter a valid email'
+                                } })}
                             />
-                            {errors.email?.type === 'required' && <p className='text-error'>Email is required</p>}
+                            {errors.email && <p className='text-error'>{errors.email.message}</p>}
                         </div>
 
 
@@ -169,22 +179,17 @@ const Register = () => {
                                 placeholder="Enter Your Password"
                                 className="input input-bordered w-full bg-white/20  focus:outline-none focus:ring-2 focus:ring-blue-200  rounded-3xl"
                                 {...register("password", {
-                                    required: true,
-                                    minLength: 6,
-                                    pattern: /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/
+                                    required: 'password is required',
+                                    minLength: {value: 6, message: 'password must have at least 6 characters'},
+                                    pattern: {
+                                        value: /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/,
+                                        message: 'password must have a capital letter and a small letter'
+                                    }
                                 }
                                 )}
                             />
-                            {errors.password?.type === 'required' && <p className='text-error'>Password is required</p>}
-                            {
-                                errors.password?.type === 'minLength' && <p className='text-error'>Password must have 6 characters</p>
-                            }
-                            {
-                                errors.password?.type === 'pattern' && <p className='text-error'>Password must have at least one capital letter, one small letter.</p>
-                            }
-
-
-
+                            {errors.password && <p className='text-error'>{errors.password.message}</p>}
+                           
                         </div>
 
                         <button type='submit' className="btn1 w-full">SignUp</button>

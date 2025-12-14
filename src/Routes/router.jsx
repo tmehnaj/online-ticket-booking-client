@@ -11,6 +11,7 @@ import About from "../Pages/About/About";
 import ErrorPage from "../Pages/Errors/ErrorPage";
 import Profile from "../Pages/Dashboard/DashBoardHome/Profile";
 import AllTickets from "../Pages/AllTickets/AllTickets";
+import DashBoardHome from "../Pages/Dashboard/DashBoardHome/DashBoardHome";
 
 export const router = createBrowserRouter([
     {
@@ -59,6 +60,10 @@ export const router = createBrowserRouter([
         children:[
             {
                 index: true,
+                element: <DashBoardHome></DashBoardHome>
+            },
+            {
+                index: 'profile',
                 element: <Profile></Profile>
             }
         ]
