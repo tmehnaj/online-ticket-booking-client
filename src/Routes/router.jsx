@@ -12,6 +12,14 @@ import ErrorPage from "../Pages/Errors/ErrorPage";
 import Profile from "../Pages/Dashboard/DashBoardHome/Profile";
 import AllTickets from "../Pages/AllTickets/AllTickets";
 import DashBoardHome from "../Pages/Dashboard/DashBoardHome/DashBoardHome";
+import MyBookedTickets from "../Pages/Dashboard/UserDashboard/MyBookedTickets";
+import TransactionHistory from "../Pages/Dashboard/UserDashboard/TransactionHistory";
+import ManageTickets from "../Pages/Dashboard/AdminDashboard/ManageTickets";
+import ManageUsers from "../Pages/Dashboard/AdminDashboard/ManageUsers";
+import AdvertiseTickets from "../Pages/Dashboard/AdminDashboard/AdvertiseTickets";
+import MyAddedTickets from "../Pages/Dashboard/VendorDashboard/MyAddedTickets";
+import RequestedBookings from "../Pages/Dashboard/VendorDashboard/RequestedBookings";
+import RevenueOverview from "../Pages/Dashboard/VendorDashboard/RevenueOverview";
 
 export const router = createBrowserRouter([
     {
@@ -63,8 +71,40 @@ export const router = createBrowserRouter([
                 element: <DashBoardHome></DashBoardHome>
             },
             {
-                index: 'profile',
+                path: 'profile',
                 element: <Profile></Profile>
+            },
+            {
+                path: 'booked-tickets',
+                element: <MyBookedTickets></MyBookedTickets>
+            },
+            {
+                path: 'transaction-history',
+                element: <TransactionHistory></TransactionHistory>
+            },
+            {
+                path: 'manage-tickets',
+                element: <ManageTickets></ManageTickets>
+            },
+            {
+                path: 'manage-users',
+                element: <ManageUsers></ManageUsers>
+            },
+            {
+                path: 'advertise-tickets',
+                element: <AdvertiseTickets></AdvertiseTickets>
+            },
+            {
+                path: 'added-tickets',
+                element: <MyAddedTickets></MyAddedTickets>
+            },
+            {
+                path: 'requested-bookings',
+                element: <RequestedBookings></RequestedBookings>
+            },
+            {
+                path: 'revenue-overview',
+                element: <RevenueOverview></RevenueOverview>
             }
         ]
        

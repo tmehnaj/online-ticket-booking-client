@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 import Container from '../../Components/Shared/Container';
 
 const ForbiddenPage = () => {
-    const navigate = useNavigate();
+    const navigate = useNavigate();      
     return (
         <Container>
             <div className='my-10 flex flex-col items-center justify-center space-y-2 min-h-screen text-center'>

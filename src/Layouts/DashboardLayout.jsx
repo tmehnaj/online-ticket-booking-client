@@ -7,10 +7,10 @@ import useRole from '../Hooks/useRole';
 
 const DashboardLayout = () => {
     const { role } = useRole();
-    const { theme} = useContext(ThemeContext);
+    const { theme } = useContext(ThemeContext);
 
 
-    
+
     return (
         <div className="drawer lg:drawer-open">
             <title>Dashboard</title>
@@ -39,12 +39,12 @@ const DashboardLayout = () => {
                                 {/* Home icon */}
                                 {
                                     theme === 'dark' ? <>
-                                     <FaBus className='text-secondary w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 '/> 
-                                 <span className='logo text-sm  md:text-base lg:text-base font-extrabold bg-[linear-gradient(30deg,#17663F,#d53f3f)]
+                                        <FaBus className='text-secondary w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                        <span className='logo text-sm  md:text-base lg:text-base font-extrabold bg-[linear-gradient(30deg,#17663F,#d53f3f)]
  text-transparent bg-clip-text is-drawer-close:hidden'>TicketBari</span></>
-                                    : <>
-                                     <FaBus className='text-secondary w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 '/> 
-                                 <span className='logo text-sm  md:text-base lg:text-base font-extrabold bg-[linear-gradient(30deg,#44c781,#d53f3fe6)]
+                                        : <>
+                                            <FaBus className='text-secondary w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                            <span className='logo text-sm  md:text-base lg:text-base font-extrabold bg-[linear-gradient(30deg,#44c781,#d53f3fe6)]
  text-transparent bg-clip-text is-drawer-close:hidden'>TicketBari</span></>
                                 }
                             </Link>
@@ -53,88 +53,92 @@ const DashboardLayout = () => {
 
                         {/* our link */}
 
-                             <li>
+                        <li>
                             <Link to="/dashboard/profile" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Homepage">
                                 {/* Home icon */}
-                                 <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 '/> 
-                                 <span className='is-drawer-close:hidden'>Profile</span>
+                                <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                <span className='is-drawer-close:hidden'>Profile</span>
                             </Link>
                         </li>
 
-                         <li>
-                            <Link to="/dashboard/booked-tickets" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="My Booked Tickets">
-                                {/* Home icon */}
-                                 <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 '/> 
-                                 <span className='is-drawer-close:hidden'>Booked Tickets</span>
-                            </Link>
-                        </li>
-                         <li>
-                            <Link to="/dashboard/transaction-history" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Transaction History">
-                                {/* Home icon */}
-                                 <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 '/> 
-                                 <span className='is-drawer-close:hidden'>Transaction History</span>
-                            </Link>
 
-                             <li>
-                            <Link to="/dashboard/manage-tickets" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Manage Tickets">
-                                {/* Home icon */}
-                                 <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 '/> 
-                                 <span className='is-drawer-close:hidden'>Manage Tickets</span>
-                            </Link>
-                        </li>
+                  
 
-                         <li>
+                   
+
+                        {
+                            role === '' && <>
+                                <li>
+                                    <Link to="/dashboard/booked-tickets" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="My Booked Tickets">
+                                        {/* Home icon */}
+                                        <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                        <span className='is-drawer-close:hidden'>Booked Tickets</span>
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link to="/dashboard/transaction-history" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Transaction History">
+                                        {/* Home icon */}
+                                        <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                        <span className='is-drawer-close:hidden'>Transaction History</span>
+                                    </Link>
+                                </li>
+                            </>
+                        }
+
+                        {
+                            role === '' && <>
+                                  <li>
                             <Link to="/dashboard/manage-users" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Manage Users">
                                 {/* Home icon */}
-                                 <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 '/> 
-                                 <span className='is-drawer-close:hidden'>Manage Users</span>
+                                <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                <span className='is-drawer-close:hidden'>Manage Users</span>
+                            </Link>
+                        </li>
+
+                        <li>
+                            <Link to="/dashboard/manage-tickets" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Manage Tickets">
+                                {/* Home icon */}
+                                <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                <span className='is-drawer-close:hidden'>Manage Tickets</span>
                             </Link>
                         </li>
 
                         <li>
                             <Link to="/dashboard/advertise-tickets" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Advertise Tickets">
                                 {/* Home icon */}
-                                 <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 '/> 
-                                 <span className='is-drawer-close:hidden'>Advertise Tickets</span>
+                                <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                <span className='is-drawer-close:hidden'>Advertise Tickets</span>
                             </Link>
                         </li>
+                        </>
+                        }
 
-                        <li>
+                        {
+                            role === '' && <>
+                                 <li>
                             <Link to="/dashboard/added-tickets" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Added Tickets">
                                 {/* Home icon */}
-                                 <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 '/> 
-                                 <span className='is-drawer-close:hidden'>Added Tickets</span>
+                                <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                <span className='is-drawer-close:hidden'>Added Tickets</span>
                             </Link>
                         </li>
 
                         <li>
                             <Link to="/dashboard/requested-bookings" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Requested Bookings">
                                 {/* Home icon */}
-                                 <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 '/> 
-                                 <span className='is-drawer-close:hidden'>Requested Bookings</span>
+                                <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                <span className='is-drawer-close:hidden'>Requested Bookings</span>
                             </Link>
                         </li>
 
                         <li>
                             <Link to="/dashboard/revenue-overview" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Revenue Overview">
                                 {/* Home icon */}
-                                 <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 '/> 
-                                 <span className='is-drawer-close:hidden'>Revenue Overview</span>
+                                <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                <span className='is-drawer-close:hidden'>Revenue Overview</span>
                             </Link>
                         </li>
-
-                        </li>
-
-                        {
-                            role === 'user' && <></>
-                        }
-                        
-                        {
-                            role === 'admin' && <></>
-                        }
-
-                        {
-                            role === 'vendor' && <></>
+                        </>
                         }
 
 
