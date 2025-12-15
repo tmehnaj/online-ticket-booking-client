@@ -4,6 +4,7 @@ import useAuth from '../../../Hooks/useAuth';
 import Loader from '../../../Components/Shared/Loader';
 import { imageUpload } from '../../../Utils';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
+import Swal from 'sweetalert2';
 
 const availablePerks = ['AC', 'Breakfast', 'Wi-Fi', 'Restroom'];
 
@@ -39,7 +40,19 @@ const AddTickets = () => {
                 createdAt: new Date()
             };
 
-            //add to store
+            //add request to the admin
+            axiosSecure.post('/tickets', ticketData)
+        .then(res=>{
+            if(res.data.insertedId){
+                  Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: "Tickets added successfully!",
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+            }
+        })
 
       
     }
@@ -50,7 +63,7 @@ const AddTickets = () => {
     return (
         <div className='p-10 md:p-15 lg:p-20'>
             <title>Add Tickets</title>
-            <h2 className="mb-2 text-left drop-shadow-sm py-2 text-dark-blue">Add Tickets</h2>
+            <h2 className="mb-5 text-left drop-shadow-sm py-2 text-dark-blue">Add Tickets</h2>
             <form onSubmit={handleSubmit(handleAddTicket)} className="space-y-4 w-full">
                 <div className='flex flex-col lg:flex-row justify-between gap-10'>
 

@@ -22,6 +22,7 @@ import RequestedBookings from "../Pages/Dashboard/VendorDashboard/RequestedBooki
 import RevenueOverview from "../Pages/Dashboard/VendorDashboard/RevenueOverview";
 import AddTickets from "../Pages/Dashboard/VendorDashboard/AddTickets";
 import AdminRoute from "./AdminRoute";
+import VendorRoute from "./VendorRoute";
 
 export const router = createBrowserRouter([
     {
@@ -98,21 +99,21 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'add-tickets',
-                element: <AddTickets></AddTickets>
+                element: <VendorRoute><AddTickets></AddTickets></VendorRoute>
             },
             {
                 path: 'added-tickets',
-                element: <MyAddedTickets></MyAddedTickets>
+                element: <VendorRoute><MyAddedTickets></MyAddedTickets></VendorRoute>
             },
             {
                 path: 'requested-bookings',
-                element: <RequestedBookings></RequestedBookings>
+                element: <VendorRoute><RequestedBookings></RequestedBookings></VendorRoute>
             },
             {
                 path: 'revenue-overview',
-                element: <RevenueOverview></RevenueOverview>
+                element: <VendorRoute><RevenueOverview></RevenueOverview></VendorRoute>
             }
-        ]
+        ] 
 
     },
     {

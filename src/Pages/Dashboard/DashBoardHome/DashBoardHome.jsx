@@ -13,15 +13,17 @@ const DashBoardHome = () => {
  }
 
 
-    if (role === 'admin') {
-        return <AdminProfile></AdminProfile>
-    }
-    else if (role === 'vendor') {
-        return <VendorProfile></VendorProfile>
-    }
-    else {
-        return <Profile></Profile>
-    }
+    // if (role === 'admin') {
+    //     return <AdminProfile></AdminProfile>
+    // }
+    // else if (role === 'vendor') {
+    //     return <VendorProfile></VendorProfile>
+    // }
+    // else {
+    //     return <Profile></Profile>
+    // }
+
+    return <Profile></Profile>
 };
 
 export default DashBoardHome;

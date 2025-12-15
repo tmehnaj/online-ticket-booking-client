@@ -126,7 +126,7 @@ const Navbar = () => {
       <p className="text-lg font-semibold text-[#1E293B]">
         {user?.displayName || 'Update Profile'}
       </p>
-      <p className="text-sm text-accent-content break-all mt-1">
+      <p className="text-sm text-[#1E293B] break-all mt-1">
         {user?.email}
       </p>
     </div>

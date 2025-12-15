@@ -143,8 +143,8 @@ const ManageUsers = () => {
     return (
         <div className='p-10 md:p-15 lg:p-20'>
             <title>Manage Users</title>
-            <h2 className='text-4xl text-dark-blue'>All Users: {users.length}</h2>
-            <label className="input m-10">
+            <h2 className="mb-10 text-left drop-shadow-sm py-2 text-dark-blue">All Users: {users.length}</h2>
+            <label className="input mt-5 mb-15">
                 <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <g
                         strokeLinejoin="round"
