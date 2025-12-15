@@ -126,7 +126,7 @@ const DashboardLayout = () => {
                         }
 
                         {
-                            role === 'user' && <>
+                            role === 'vendor' && <>
                                 <li>
                                     <Link to="/dashboard/add-tickets" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Add Tickets">
                                         {/* Home icon */}

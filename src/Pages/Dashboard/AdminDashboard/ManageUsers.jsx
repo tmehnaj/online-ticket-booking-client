@@ -4,7 +4,7 @@ import { useQuery } from '@tanstack/react-query';
 import { FaUserShield } from 'react-icons/fa6';
 import { FiShieldOff } from 'react-icons/fi';
 import Swal from 'sweetalert2';
-import { MdAdminPanelSettings} from 'react-icons/md';
+import { MdAdminPanelSettings } from 'react-icons/md';
 import { FaStore, FaStoreSlash } from 'react-icons/fa';
 import { ImBlocked } from "react-icons/im";
 
@@ -82,8 +82,8 @@ const ManageUsers = () => {
     }
 
 
-    const handleMakeVendor = user=>{
-          const userUpdateInfo = {
+    const handleMakeVendor = user => {
+        const userUpdateInfo = {
             role: 'vendor',
         }
         axiosSecure.patch(`/users/${user._id}/role`, userUpdateInfo)
@@ -104,7 +104,7 @@ const ManageUsers = () => {
             })
     }
 
-    const handleRemoveVendor = user=>{
+    const handleRemoveVendor = user => {
         Swal.fire({
             title: "Are you sure?",
             text: "You won't be able to revert this!",
@@ -141,8 +141,9 @@ const ManageUsers = () => {
     }
 
     return (
-        <div>
-            <h2 className='text-4xl'>All Users: {users.length}</h2>
+        <div className='p-10 md:p-15 lg:p-20'>
+            <title>Manage Users</title>
+            <h2 className='text-4xl text-dark-blue'>All Users: {users.length}</h2>
             <label className="input m-10">
                 <svg className="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
                     <g
