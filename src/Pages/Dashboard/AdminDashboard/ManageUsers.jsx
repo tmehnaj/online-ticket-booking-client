@@ -4,8 +4,9 @@ import { useQuery } from '@tanstack/react-query';
 import { FaUserShield } from 'react-icons/fa6';
 import { FiShieldOff } from 'react-icons/fi';
 import Swal from 'sweetalert2';
-import { MdAdminPanelSettings, MdBlock } from 'react-icons/md';
+import { MdAdminPanelSettings} from 'react-icons/md';
 import { FaStore, FaStoreSlash } from 'react-icons/fa';
+import { ImBlocked } from "react-icons/im";
 
 const ManageUsers = () => {
     const [searchText, setSearchText] = useState('');
@@ -52,7 +53,7 @@ const ManageUsers = () => {
             showCancelButton: true,
             confirmButtonColor: "#3085d6",
             cancelButtonColor: "#d33",
-            confirmButtonText: "Yes, delete it!"
+            confirmButtonText: "Yes, Remove it!"
         }).then((result) => {
             if (result.isConfirmed) {
 
@@ -81,6 +82,63 @@ const ManageUsers = () => {
     }
 
 
+    const handleMakeVendor = user=>{
+          const userUpdateInfo = {
+            role: 'vendor',
+        }
+        axiosSecure.patch(`/users/${user._id}/role`, userUpdateInfo)
+            .then(res => {
+                if (res.data.modifiedCount) {
+                    refetch();
+                    Swal.fire({
+                        position: "top-end",
+                        icon: "success",
+                        title: `${user?.displayName} is accepted as Vendor`,
+                        showConfirmButton: false,
+                        timer: 2000
+                    });
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
+    const handleRemoveVendor = user=>{
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, Remove it!"
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                const userUpdateInfo = {
+                    role: 'user',
+                }
+                axiosSecure.patch(`/users/${user._id}/role`, userUpdateInfo)
+                    .then(res => {
+                        if (res.data.modifiedCount) {
+                            refetch();
+                            Swal.fire({
+                                position: "top-end",
+                                icon: "success",
+                                title: `${user?.displayName} is rejected as Vendor`,
+                                showConfirmButton: false,
+                                timer: 2000
+                            });
+                        }
+                    })
+                    .catch(err => {
+                        console.log(err);
+                    })
+            }
+        });
+
+    }
 
     return (
         <div>
@@ -160,15 +218,15 @@ const ManageUsers = () => {
                                     </button>
                                 }
                             </td>
-                            <th>
+                            <td className='flex items-center gap-3'>
                                 <div>
                                     {user.role === 'vendor' ?
                                         <button
-                                            onClick={() => handleRemoveAdmin(user)}
+                                            onClick={() => handleRemoveVendor(user)}
                                             className='btn bg-secondary tooltip tooltip-info' data-tip="Remove Vendor">
                                             <FaStoreSlash className='text-black h-4 w-4' />                                  </button> :
                                         <button
-                                            onClick={() => handleMakeAdmin(user)}
+                                            onClick={() => handleMakeVendor(user)}
                                             className='btn bg-warning  tooltip tooltip-info' data-tip="Mark as Vendor">
                                             <FaStore className='text-black h-4 w-4' />
                                         </button>
@@ -178,12 +236,12 @@ const ManageUsers = () => {
                                     {
                                         user.role === 'vendor' && <button
 
-                                            className='btn bg-red  tooltip tooltip-info' data-tip="Mark as Fraud">
-                                            <MdBlock className='text-black h-4 w-4' />
+                                            className='btn bg-red-700  tooltip tooltip-info' data-tip="Mark as Fraud">
+                                            <ImBlocked className='text-black h-4 w-4' />
                                         </button>
                                     }
                                 </div>
-                            </th>
+                            </td>
                         </tr>)}
 
 

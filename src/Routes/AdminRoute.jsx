@@ -7,7 +7,7 @@ import Loader from '../Components/Shared/Loader'
 const AdminRoute = ({ children }) => {
     const { role, roleLoading } = useRole();
     const { user, loading } = useAuth();
-
+                                     
     if(loading || roleLoading){
         return <Loader></Loader>
     }
