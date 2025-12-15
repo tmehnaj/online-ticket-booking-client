@@ -9,5 +9,6 @@ export const imageUpload = async imageData => {
 
     const { data } = await axios.post(image_API_URL, formData);
     // return data?.data?.display_url
-    return data?.data?.url;
+    // console.log('data inside imageupload function',data?.data?.display_url);
+    return data?.data?.display_url;
 }

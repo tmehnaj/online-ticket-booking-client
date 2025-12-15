@@ -20,13 +20,14 @@ import AdvertiseTickets from "../Pages/Dashboard/AdminDashboard/AdvertiseTickets
 import MyAddedTickets from "../Pages/Dashboard/VendorDashboard/MyAddedTickets";
 import RequestedBookings from "../Pages/Dashboard/VendorDashboard/RequestedBookings";
 import RevenueOverview from "../Pages/Dashboard/VendorDashboard/RevenueOverview";
+import AddTickets from "../Pages/Dashboard/VendorDashboard/AddTickets";
 
 export const router = createBrowserRouter([
     {
         path: "/",
         element: <RootLayout></RootLayout>,
         hydrateFallbackElement: <Loader></Loader>,
-        children:[
+        children: [
             {
                 index: true,
                 element: <Home></Home>,
@@ -35,20 +36,20 @@ export const router = createBrowserRouter([
                 path: 'about',
                 element: <About></About>
             },
-             {
+            {
                 path: 'all-tickets',
                 element: <PrivateRoutes>
                     <AllTickets></AllTickets>
                 </PrivateRoutes>
             }
-       
+
         ]
     },
     {
         path: '/',
         element: <AuthLayout></AuthLayout>,
         hydrateFallbackElement: <Loader></Loader>,
-        children:[
+        children: [
             {
                 path: "login",
                 element: <Login></Login>
@@ -65,7 +66,7 @@ export const router = createBrowserRouter([
             <DashboardLayout></DashboardLayout>
         </PrivateRoutes>,
         hydrateFallbackElement: <Loader></Loader>,
-        children:[
+        children: [
             {
                 index: true,
                 element: <DashBoardHome></DashBoardHome>
@@ -95,6 +96,10 @@ export const router = createBrowserRouter([
                 element: <AdvertiseTickets></AdvertiseTickets>
             },
             {
+                path: 'add-tickets',
+                element: <AddTickets></AddTickets>
+            },
+            {
                 path: 'added-tickets',
                 element: <MyAddedTickets></MyAddedTickets>
             },
@@ -107,9 +112,9 @@ export const router = createBrowserRouter([
                 element: <RevenueOverview></RevenueOverview>
             }
         ]
-       
+
     },
-     {
+    {
         path: "*",
         element: <ErrorPage></ErrorPage>
     }

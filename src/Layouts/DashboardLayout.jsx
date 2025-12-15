@@ -1,9 +1,21 @@
 import React, { useContext } from 'react';
-import { FaBus, FaUser } from 'react-icons/fa';
+import { FaBus, FaPlus, FaUser, FaUserCircle } from 'react-icons/fa';
 import { IoSettingsSharp } from 'react-icons/io5';
 import { Link, Outlet } from 'react-router';
 import { ThemeContext } from '../Providers/ThemeContext';
 import useRole from '../Hooks/useRole';
+import { HiOutlineTicket } from "react-icons/hi";
+import { MdOutlinePayments } from "react-icons/md";
+import { FaUsersCog } from "react-icons/fa";
+import { MdCampaign } from "react-icons/md";
+import { MdOutlineBarChart } from "react-icons/md";
+import { MdOutlineAssignment } from "react-icons/md";
+import { FaTicketAlt } from "react-icons/fa";
+import { IoAddCircleOutline } from "react-icons/io5";
+import { MdManageAccounts } from "react-icons/md";
+import { FaPlusCircle } from "react-icons/fa";
+
+
 
 const DashboardLayout = () => {
     const { role } = useRole();
@@ -54,31 +66,31 @@ const DashboardLayout = () => {
                         {/* our link */}
 
                         <li>
-                            <Link to="/dashboard/profile" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Homepage">
+                            <Link to="/dashboard/profile" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Profile">
                                 {/* Home icon */}
-                                <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                <FaUserCircle className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
                                 <span className='is-drawer-close:hidden'>Profile</span>
                             </Link>
                         </li>
 
 
-                  
 
-                   
+
+
 
                         {
-                            role === '' && <>
+                            role === 'user' && <>
                                 <li>
                                     <Link to="/dashboard/booked-tickets" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="My Booked Tickets">
                                         {/* Home icon */}
-                                        <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                        <HiOutlineTicket className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
                                         <span className='is-drawer-close:hidden'>Booked Tickets</span>
                                     </Link>
                                 </li>
                                 <li>
                                     <Link to="/dashboard/transaction-history" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Transaction History">
                                         {/* Home icon */}
-                                        <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                        <MdOutlinePayments className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
                                         <span className='is-drawer-close:hidden'>Transaction History</span>
                                     </Link>
                                 </li>
@@ -86,59 +98,67 @@ const DashboardLayout = () => {
                         }
 
                         {
-                            role === '' && <>
-                                  <li>
-                            <Link to="/dashboard/manage-users" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Manage Users">
-                                {/* Home icon */}
-                                <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
-                                <span className='is-drawer-close:hidden'>Manage Users</span>
-                            </Link>
-                        </li>
+                            role === 'admin' && <>
+                                <li>
+                                    <Link to="/dashboard/manage-users" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Manage Users">
+                                        {/* Home icon */}
+                                        <FaUsersCog className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                        <span className='is-drawer-close:hidden'>Manage Users</span>
+                                    </Link>
+                                </li>
 
-                        <li>
-                            <Link to="/dashboard/manage-tickets" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Manage Tickets">
-                                {/* Home icon */}
-                                <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
-                                <span className='is-drawer-close:hidden'>Manage Tickets</span>
-                            </Link>
-                        </li>
+                                <li>
+                                    <Link to="/dashboard/manage-tickets" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Manage Tickets">
+                                        {/* Home icon */}
+                                        <MdManageAccounts className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                        <span className='is-drawer-close:hidden'>Manage Tickets</span>
+                                    </Link>
+                                </li>
 
-                        <li>
-                            <Link to="/dashboard/advertise-tickets" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Advertise Tickets">
-                                {/* Home icon */}
-                                <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
-                                <span className='is-drawer-close:hidden'>Advertise Tickets</span>
-                            </Link>
-                        </li>
-                        </>
+                                <li>
+                                    <Link to="/dashboard/advertise-tickets" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Advertise Tickets">
+                                        {/* Home icon */}
+                                        <MdCampaign className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                        <span className='is-drawer-close:hidden'>Advertise Tickets</span>
+                                    </Link>
+                                </li>
+                            </>
                         }
 
                         {
-                            role === '' && <>
-                                 <li>
-                            <Link to="/dashboard/added-tickets" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Added Tickets">
-                                {/* Home icon */}
-                                <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
-                                <span className='is-drawer-close:hidden'>Added Tickets</span>
-                            </Link>
-                        </li>
+                            role === 'user' && <>
+                                <li>
+                                    <Link to="/dashboard/add-tickets" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Add Tickets">
+                                        {/* Home icon */}
+                                        <FaPlus className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                        <span className='is-drawer-close:hidden'>Add Tickets</span>
+                                    </Link>
+                                </li>
 
-                        <li>
-                            <Link to="/dashboard/requested-bookings" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Requested Bookings">
-                                {/* Home icon */}
-                                <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
-                                <span className='is-drawer-close:hidden'>Requested Bookings</span>
-                            </Link>
-                        </li>
+                                <li>
+                                    <Link to="/dashboard/added-tickets" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Added Tickets">
+                                        {/* Home icon */}
+                                        <FaTicketAlt className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                        <span className='is-drawer-close:hidden'>Added Tickets</span>
+                                    </Link>
+                                </li>
 
-                        <li>
-                            <Link to="/dashboard/revenue-overview" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Revenue Overview">
-                                {/* Home icon */}
-                                <FaUser className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
-                                <span className='is-drawer-close:hidden'>Revenue Overview</span>
-                            </Link>
-                        </li>
-                        </>
+                                <li>
+                                    <Link to="/dashboard/requested-bookings" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Requested Bookings">
+                                        {/* Home icon */}
+                                        <MdOutlineAssignment className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                        <span className='is-drawer-close:hidden'>Requested Bookings</span>
+                                    </Link>
+                                </li>
+
+                                <li>
+                                    <Link to="/dashboard/revenue-overview" className="is-drawer-close:tooltip is-drawer-close:tooltip-right tooltip-primary text-base-content" data-tip="Revenue Overview">
+                                        {/* Home icon */}
+                                        <MdOutlineBarChart className='w-3 h-3 md:w-4 md:h-4 lg:h-4 lg:w-4 ' />
+                                        <span className='is-drawer-close:hidden'>Revenue Overview</span>
+                                    </Link>
+                                </li>
+                            </>
                         }
 
 

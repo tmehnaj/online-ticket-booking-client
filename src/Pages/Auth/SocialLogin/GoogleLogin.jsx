@@ -3,35 +3,39 @@ import { useLocation, useNavigate } from 'react-router';
 import useAuth from '../../../Hooks/useAuth';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { FcGoogle } from 'react-icons/fc';
+import { toast } from 'react-toastify';
 
 
 const GoogleLogin = () => {
-    const { googleLogIn } = useAuth();
+    const { googleSignIn, setLoading } = useAuth();
     const location = useLocation();
     const navigate = useNavigate();
     const axiosSecure = useAxiosSecure();
 
     const handleGoogleLogIn = () => {
-        googleLogIn()
+        googleSignIn()
             .then(result => {
                 // console.log("after google login", result);
-                //store user in database
-                // const userInfo = {
-                //     displayName: result.user?.displayName,
-                //     email: result.user?.email,
-                //     photoURL: result.user?.photoURL,
-                // }
-                // axiosSecure.post('/users', userInfo)
-                //     .then(res => {
-                //         if (res.data.insertedId) {
-                //             console.log('user is stored');
-                //             navigate(location?.state || "/");
-                //         }
-                //     })
+               // store user in database
+                const userInfo = {
+                    displayName: result.user?.displayName,
+                    email: result.user?.email,
+                    photoURL: result.user?.photoURL,
+                }
+                axiosSecure.post('/users', userInfo)
+                    .then(res => {
+                        if (res.data.insertedId) {
+                            // console.log('user is stored');
+                            navigate(location?.state || "/");
+                        }
+                    })
+
+                    setLoading(false);
 
             })
             .catch(err => {
-                console.log(err);
+                toast.error(err?.message);
+                setLoading(false);
             })
     }
     return (

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { motion } from "framer-motion";
 import GoogleLogin from './SocialLogin/GoogleLogin';
