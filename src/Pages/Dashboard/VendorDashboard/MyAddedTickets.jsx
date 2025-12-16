@@ -34,8 +34,10 @@ const MyAddedTickets = () => {
             if (result.isConfirmed) {
                 axiosSecure.delete(`/tickets/${id}`)
                     .then(result => {
-                        if (result.deleteCount) {
-                            refetch();
+                        refetch();
+                        // console.log(result);
+                        if (result.data.deletedCount) {
+                            
                             Swal.fire({
                                 position: "top-end",
                                 icon: "success",

@@ -14,14 +14,19 @@ import { FaTicketAlt } from "react-icons/fa";
 import { IoAddCircleOutline } from "react-icons/io5";
 import { MdManageAccounts } from "react-icons/md";
 import { FaPlusCircle } from "react-icons/fa";
+import useAuth from '../Hooks/useAuth';
+import Loader from '../Components/Shared/Loader'
 
 
 
 const DashboardLayout = () => {
-    const { role } = useRole();
+    const { loading } = useAuth();
+    const { role, roleLoading } = useRole();
     const { theme } = useContext(ThemeContext);
 
-
+  if(loading || roleLoading){
+    return <Loader></Loader>
+  }
 
     return (
         <div className="drawer lg:drawer-open">

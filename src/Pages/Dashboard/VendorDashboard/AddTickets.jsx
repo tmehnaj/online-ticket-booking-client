@@ -80,8 +80,8 @@ const AddTickets = () => {
                                 {...register("title", {
                                     required: 'title is required',
                                     maxLength: {
-                                        value: 50,
-                                        message: 'title cannot greater than 50 characters'
+                                        value: 30,
+                                        message: 'title cannot greater than 30 characters'
                                     }
                                 })}
                             />
