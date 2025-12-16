@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useAxiosSecure from '../../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
+import { toast } from 'react-toastify';
 
 const AdvertiseTickets = () => {
     const axiosSecure = useAxiosSecure();
@@ -15,10 +16,48 @@ const AdvertiseTickets = () => {
         }
     })
 
+
+    const countAdvertise = ()=>{
+        // refetch();
+        const count = tickets.filter(ticket=> ticket?.advertiseStatus === 'advertise');
+        return count.length;
+    }
+
+     const updateAdvertiseStatus = (ticket, status)=>{
+                     const updateInfo = {
+                advertiseStatus: status,
+                status: ticket?.status,
+            }
+    
+                 axiosSecure.patch(`/tickets/${ticket._id}`, updateInfo)
+            .then(res=>{
+                if(res.data.modifiedCount){
+                    refetch();
+                
+                }
+            })
+    
+        }
+    
+        const handleAdvertise = (ticket) => {
+           const count = countAdvertise();
+           console.log('count inside handleaaadvertise', count);
+           if(count < 6 )
+           {
+            updateAdvertiseStatus(ticket, 'advertise');
+           }else{
+            return toast.error('advertise tickets can not be more than 6')
+           }
+        }
+    
+        const handleRemoveAdvertise = (ticket) => {
+            updateAdvertiseStatus(ticket, 'unadvertise');
+        }
+
     return (
         <div className='p-10 md:p-15 lg:p-20'>
             <title>Advertise Tickets</title>
-            <h2 className="mb-10 text-left drop-shadow-sm py-2 text-dark-blue">Advertise Tickets: {tickets.length}</h2>
+            <h2 className="mb-10 text-left drop-shadow-sm py-2 text-dark-blue">Advertise Tickets: {countAdvertise()}</h2>
             <div className="overflow-x-auto">
                 <table className="table">
                     {/* head */}
@@ -72,10 +111,20 @@ const AdvertiseTickets = () => {
                                 {ticket?.vendorEmail}
                             </td>
                             <td>
-                                <input
-                                    type="checkbox"
-                                    className="toggle toggle-success"
-                                />
+                                
+                                   {
+                                    ticket?.advertiseStatus === 'advertise' ? <button
+                                        onClick={() => handleRemoveAdvertise(ticket)}
+                                        className='btn bg-secondary rounded-3xl hover:bg-[#d53f3f]'>
+                                        Remove Advertise
+                                    </button> :  <button
+                                        onClick={() => handleAdvertise(ticket)}
+                                        className='btn bg-green-500 rounded-3xl hover:bg-green-600'>
+                                        Advertise                                 
+                                         </button>
+                                   }
+                                    
+                                
                             </td>
 
                         </tr>)}

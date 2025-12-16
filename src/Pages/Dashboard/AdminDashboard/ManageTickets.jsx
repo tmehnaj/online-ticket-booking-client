@@ -110,11 +110,11 @@ const ManageTickets = () => {
                                                <div className='flex items-center gap-2'>
                                                  <button
                                                     onClick={() => handleApproveTicket(ticket)}
-                                                    className='btn bg-green-500'>
+                                                    className='btn bg-green-500 rounded-3xl hover:bg-green-600'>
                                                     Approve                                  </button> 
                                                 <button
                                                     onClick={() => handleRejectTicket(ticket)}
-                                                    className='btn bg-secondary'>
+                                                    className='btn bg-secondary rounded-3xl hover:bg-[#d53f3f]'>
                                                     Reject
                                                 </button>
                                        

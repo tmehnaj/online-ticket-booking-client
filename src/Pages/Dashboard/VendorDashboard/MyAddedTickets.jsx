@@ -76,9 +76,10 @@ const MyAddedTickets = () => {
                     <div className="card-body sm:px-1 md:px-8 ">
 
                         {/* Title and Transport Type */}
-                        <h3 className="card-title text-dark-blue w-full text-left">{ticket?.title}</h3>
+                        <div className='flex gap-2 items-center'><h3 className="card-title text-dark-blue w-full text-left">{ticket?.title}</h3>
+                        <span className='badge badge-info font-semibold'>{ticket?.status}</span></div>
                         <p className='font-semibold text-accent-content text-left mb-2'>
-                            Transport: <span className='font-normal text-secondary'>{ticket?.transportType}</span>
+                            Transport: <span className='font-bold text-secondary'>{ticket?.transportType}</span>
                         </p>
 
                         {/* Locations (From -> To) */}
@@ -117,8 +118,11 @@ const MyAddedTickets = () => {
 
                         {/* See Details Button */}
                         <div className='w-full flex items-center justify-between gap-3'>
-                            <button className='btn2 w-1/2'>Update</button>
                             <button
+                            disabled = { ticket?.status === 'rejected'? true : false }
+                            className='btn2 w-1/2'>Update</button>
+                            <button
+                            // disabled = { ticket?.status === 'rejected'? true : false }
                                 onClick={() => handleDeleteTicket(ticket._id)}
                                 className='btn1 w-1/2'>Delete</button>
                         </div>

@@ -6,7 +6,7 @@ export default function Rotate() {
     const box = {
     width: 50,
     height: 50,
-    backgroundColor: '#3B82F6',
+    backgroundColor: 'rgba(213, 63, 63, 0.9)',
     borderRadius: 5,
     margin: 12,
     display: 'flex',

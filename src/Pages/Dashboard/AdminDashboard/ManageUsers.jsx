@@ -210,11 +210,11 @@ const ManageUsers = () => {
                                 {user.role === 'admin' ?
                                     <button
                                         onClick={() => handleRemoveAdmin(user)}
-                                        className='btn bg-secondary tooltip tooltip-info' data-tip="Remove Admin">
+                                        className='btn bg-secondary  rounded-3xl hover:bg-[#d53f3f] tooltip tooltip-info' data-tip="Remove Admin">
                                         <FiShieldOff className='text-black h-4 w-4'></FiShieldOff>                                  </button> :
                                     <button
                                         onClick={() => handleMakeAdmin(user)}
-                                        className='btn bg-green-500  tooltip tooltip-info' data-tip="Mark as Admin">
+                                        className='btn bg-green-500 rounded-3xl hover:bg-green-600 tooltip tooltip-info' data-tip="Mark as Admin">
                                         <MdAdminPanelSettings className='text-black h-4 w-4' />
                                     </button>
                                 }
@@ -224,11 +224,11 @@ const ManageUsers = () => {
                                     {user.role === 'vendor' ?
                                         <button
                                             onClick={() => handleRemoveVendor(user)}
-                                            className='btn bg-secondary tooltip tooltip-info' data-tip="Remove Vendor">
+                                            className='btn bg-secondary rounded-3xl hover:bg-[#d53f3f] tooltip tooltip-info' data-tip="Remove Vendor">
                                             <FaStoreSlash className='text-black h-4 w-4' />                                  </button> :
                                         <button
                                             onClick={() => handleMakeVendor(user)}
-                                            className='btn bg-warning  tooltip tooltip-info' data-tip="Mark as Vendor">
+                                            className='btn bg-warning rounded-3xl tooltip tooltip-info' data-tip="Mark as Vendor">
                                             <FaStore className='text-black h-4 w-4' />
                                         </button>
                                     }
@@ -237,7 +237,7 @@ const ManageUsers = () => {
                                     {
                                         user.role === 'vendor' && <button
 
-                                            className='btn bg-red-700  tooltip tooltip-info' data-tip="Mark as Fraud">
+                                            className='btn bg-red-700 rounded-3xl hover:bg-red-800  tooltip tooltip-info' data-tip="Mark as Fraud">
                                             <ImBlocked className='text-black h-4 w-4' />
                                         </button>
                                     }
