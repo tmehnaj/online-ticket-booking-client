@@ -1,12 +1,12 @@
 import React from 'react';
 import Navbar from '../../../Components/Shared/Navbar/Navbar';
 import TicketCard from '../../../Components/Shared/TicketCard/TicketCard';
+import AdvertiseSection from '../AdvertiseSection/AdvertiseSection';
 
 const Home = () => {
     return (
         <div>
-   <h1>home</h1>
-   <TicketCard></TicketCard>
+   <AdvertiseSection></AdvertiseSection>
         </div>
     );
 };
