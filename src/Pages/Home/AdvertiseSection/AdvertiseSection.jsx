@@ -6,6 +6,7 @@ import { useQuery } from '@tanstack/react-query';
 import 'swiper/css';
 import { Autoplay } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { FaArrowRight } from 'react-icons/fa';
 
 
 const AdvertiseSection = () => {
@@ -26,11 +27,27 @@ const AdvertiseSection = () => {
         <Container>
             <div className='my-20'>
 
-                <h2 className='text-dark-blue pb-12 text-center'>Featured Tickets</h2>
+                <h2 className='text-dark-blue pb-12 text-left flex items-end gap-2'>Featured Tickets <FaArrowRight /></h2>
 
                 <Swiper
                     loop={true}
-                    slidesPerView={3}
+                    breakpoints={{
+                       
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetween: 10,
+                        },
+                        
+                        640: {
+                            slidesPerView: 2,
+                            spaceBetween: 20,
+                        },
+                       
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                        },
+                    }}
                     centeredSlides={true}
                     spaceBetween={30}
                     grabCursor={true}

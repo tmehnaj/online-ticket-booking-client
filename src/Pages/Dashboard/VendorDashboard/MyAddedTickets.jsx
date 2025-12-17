@@ -63,7 +63,7 @@ const MyAddedTickets = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-5 gap-y-8'>
                 {tickets.map(ticket => <div className="card scale bg-base-200 max-w-96 h-full hover:shadow-lg shadow-accent-content justify-self-center md:justify-self-auto">
                     {/* Image Section */}
-                    <figure className="px-1 sm:px-3 md:px-8 pt-6 md:pt-9">
+                    <figure className="px-4 sm:px-5 md:px-8 pt-6 md:pt-9">
                         <img
                             src={ticket?.ticketImageUrl}
                             alt=''
@@ -73,7 +73,7 @@ const MyAddedTickets = () => {
                     </figure>
 
                     {/* Card Body (Details) */}
-                    <div className="card-body sm:px-1 md:px-8 ">
+                    <div className="card-body  px-4 sm:px-5 md:px-8">
 
                         {/* Title and Transport Type */}
                         <div className='flex gap-2 items-center'><h3 className="card-title text-dark-blue w-full text-left">{ticket?.title}</h3>

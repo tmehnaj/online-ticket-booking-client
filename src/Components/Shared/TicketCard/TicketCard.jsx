@@ -30,17 +30,17 @@ const TicketCard = ({ ticket }) => {
 
         <div className="card scale bg-base-200 max-w-96 h-full hover:shadow-lg shadow-accent-content justify-self-center md:justify-self-auto">
             {/* Image Section */}
-            <figure className="px-1 sm:px-3 md:px-8 pt-6 md:pt-9">
+            <figure className="px-4 sm:px-5 md:px-8 pt-6 md:pt-9">
                 <img
                     src={ticket?.ticketImageUrl}
                     alt=''
                     // Tailwind classes for size, you might need to adjust these to fit your design system
-                    className="rounded-xl h-[190px] w-[310px] lg:h-[250px] lg:w-[400px] object-cover"
+                    className="rounded-xl h-[190px] w-[300px] lg:h-[250px] lg:w-[400px] object-cover"
                 />
             </figure>
 
             {/* Card Body (Details) */}
-            <div className="card-body sm:px-1 md:px-8 ">
+            <div className="card-body px-4 sm:px-5 md:px-8 ">
 
                 {/* Title and Transport Type */}
                 <div className='flex gap-2 items-center'><h3 className="card-title text-dark-blue w-full text-left">{ticket?.title}</h3>
