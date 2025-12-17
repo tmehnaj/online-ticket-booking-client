@@ -25,7 +25,7 @@ const AdvertiseSection = () => {
 
     return (
         <Container>
-            <div className='my-20'>
+            <div className='my-30'>
 
                 <h2 className='text-dark-blue pb-12 text-left flex items-end gap-2'>Featured Tickets <FaArrowRight /></h2>
 

@@ -11,7 +11,7 @@ const LatestSection = () => {
 
 
     const { refetch, data: tickets = [] } = useQuery({
-        queryKey: ['tickets', 'advertise'],
+        queryKey: ['tickets', 'latest'],
         queryFn: async () => {
             const res = await axiosSecure.get('/tickets/latest');
             return res.data;
@@ -21,7 +21,7 @@ const LatestSection = () => {
 
     return (
        <Container>
-        <div className='my-20'>
+        <div className='my-30'>
             <h2 className='text-dark-blue pb-12 text-left flex items-end gap-2'>Latest Tickets <FaArrowRight /></h2>
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5'>
                 {

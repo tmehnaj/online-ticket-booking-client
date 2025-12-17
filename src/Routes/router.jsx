@@ -23,6 +23,7 @@ import RevenueOverview from "../Pages/Dashboard/VendorDashboard/RevenueOverview"
 import AddTickets from "../Pages/Dashboard/VendorDashboard/AddTickets";
 import AdminRoute from "./AdminRoute";
 import VendorRoute from "./VendorRoute";
+import TicketDetails from "../Pages/TicketDetail/TicketDetails";
 
 export const router = createBrowserRouter([
     {
@@ -42,6 +43,12 @@ export const router = createBrowserRouter([
                 path: 'all-tickets',
                 element: <PrivateRoutes>
                     <AllTickets></AllTickets>
+                </PrivateRoutes>
+            },
+            {
+                path: 'details/:id',
+                element: <PrivateRoutes>
+                    <TicketDetails></TicketDetails>
                 </PrivateRoutes>
             }
 

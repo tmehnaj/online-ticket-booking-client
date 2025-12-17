@@ -86,7 +86,7 @@ const TicketCard = ({ ticket }) => {
 
                 {/* See Details Button */}
                 <div className='w-full'>
-                    <Link to=''><button className='card-btn w-full flex items-center justify-center'>See Details<MdOutlineDoubleArrow /></button></Link>
+                    <Link to={`/details/${ticket._id}`}><button className='card-btn w-full flex items-center justify-center'>See Details<MdOutlineDoubleArrow /></button></Link>
                 </div>
 
 

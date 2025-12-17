@@ -9,7 +9,7 @@ const Slide = () => {
             id: 1,
             title: "Your Gateway to Every Journey",
             description: "Experience the ultimate convenience in travel booking. Whether it's by road, rail, water, or air, find your perfect ticket in seconds.",
-            image: "https://i.ibb.co.com/3ykY6Nbq/ashique-anan-abir-p-Mf7c5w7-Dmc-unsplash.jpg",
+            image: "https://i.ibb.co.com/3ykY6Nbq/ashique-anan-abir-p-Mf7c5w7-Dmc-unsplash.jpg ",
             btnText: "Check All Tickets",
             // Using your theme's dark blue and soft green variables
             textBg: "bg-[var(--color-base-200)]",
@@ -36,7 +36,7 @@ const Slide = () => {
     ];
 
     return (
-        <div className="mb-20 rounded-b-2xl overflow-hidden shadow-xl ">
+        <div className="mb-30 rounded-b-2xl overflow-hidden shadow-xl ">
             <Carousel
                 showThumbs={false}
                 autoPlay={true}
