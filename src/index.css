@@ -103,6 +103,10 @@ h4{
     font-family: "TASA Orbiter", sans-serif;
 }
 
+.badge{
+  @apply rounded-3xl
+}
+
 .btn1{
   @apply px-3 py-1  sm:px-4.5 sm:py-1.5 rounded-3xl border-3 border-secondary hover:border-[#d53f3f] bg-secondary hover:bg-[#d53f3f] font-bold text-white text-lg whitespace-nowrap transition-all duration-300 ease-in-out
 }

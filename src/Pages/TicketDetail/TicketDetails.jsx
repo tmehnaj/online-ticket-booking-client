@@ -22,7 +22,7 @@ const TicketDetails = () => {
     const { data: ticket = {}, isLoading, refetch } = useQuery({
         queryKey: ['ticket', id],
         queryFn: async () => {
-            const result = await axiosSecure.get(`/details/${id}`);
+            const result = await axiosSecure.get(`/ticket-details/${id}`);
             return result.data;
         },
     });
@@ -104,30 +104,30 @@ const TicketDetails = () => {
                     transition={{ duration: 0.8 }}
                 >
                     <div className='flex justify-between items-start'>
-                        <h1 className='text-4xl font-extrabold text-base-content'>{ticket?.title}</h1>
+                        <h1 className='text-4xl font-extrabold text-dark-blue'>{ticket?.title}</h1>
                         <span className="badge badge-lg bg-primary text-white border-none">{ticket?.transportType}</span>
                     </div>
 
                     <div className="grid grid-cols-2 gap-4">
-                        <div className="flex items-center gap-3 bg-primary p-4 rounded-2xl">
+                        <div className="flex items-center gap-3 bg-base-200 shadow-xl p-4 rounded-2xl">
                             <FaMapMarkerAlt className="text-xl" />
                             <div>
-                                <p className="text-xs opacity-60">Route:</p>
+                                <p className="text-xs">Route:</p>
                                 <span className="font-bold">{ticket?.origin} → {ticket?.destination}</span>
                             </div>
                         </div>
-                        <div className="flex items-center gap-3 bg-primary  p-4 rounded-2xl">
+                        <div className="flex items-center gap-3 bg-base-200 shadow-xl  p-4 rounded-2xl">
                             <FaClock className="text-xl" />
                             <div>
-                                <p className="text-xs opacity-60">Time Left</p>
+                                <p className="text-xs ">Time Left</p>
                                 <p className="font-bold text-secondary">{timeLeft}</p>
                             </div>
                         </div>
                     </div>
 
                     <div className="space-y-2">
-                        <p className="text-3xl font-bold text-secondary">৳ {ticket?.price} <span className="text-sm text-base-content opacity-60">/per unit</span></p>
-                        <p className="flex items-center gap-2"><FaTicketAlt/> Available Tickets: <span className="font-bold">{ticket?.quantity}</span></p>
+                        <p className="text-2xl font-bold text-secondary">৳ {ticket?.price} <span className="text-sm text-base-content opacity-60">/per unit</span></p>
+                        <p>Available Tickets: <span className="font-bold badge badge-warning">{ticket?.quantity}</span></p>
                     </div>
 
                     {/* Perks Section */}
@@ -135,16 +135,16 @@ const TicketDetails = () => {
                         <p className="font-bold mb-2">Perks:</p>
                         <div className="flex gap-2">
                             {ticket?.perks?.map((perk, idx) => (
-                                <span key={idx} className="badge badge-outline badge-success">{perk}</span>
+                                <span key={idx} className="badge badge-lg bg-primary text-white border-none">{perk}</span>
                             ))}
                         </div>
                     </div>
 
                     <div className="border-t pt-4 border-gray-400">
                        
-                            <p>Vendor:</p>
+                            <p>Vendor Information:</p>
                             <p className="font-bold">{ticket?.vendorName}</p>
-                            <p className="font-bold">{ticket?.vendorName}</p>
+                            <p className="font-bold">{ticket?.vendorEmail}</p>
                      
                     </div>
 
@@ -152,7 +152,7 @@ const TicketDetails = () => {
                     <button 
                         onClick={() => document.getElementById('booking_modal').showModal()}
                         disabled={isExpired || isOutOfStock}
-                        className={`w-full btn1 ${isExpired || isOutOfStock ? 'btn-disabled bg-gray-400' : 'bg-primary text-white hover:scale-105'}`}
+                        className={`btn1 ${isExpired || isOutOfStock ? 'btn-disabled bg-gray-400' : 'bg-primary text-white hover:scale-105'}`}
                     >
                         {isExpired ? "Trip Departed" : isOutOfStock ? "Sold Out" : "Book Now"}
                     </button>
@@ -180,7 +180,7 @@ const TicketDetails = () => {
                         </div>
                         <div className="flex justify-between items-center bg-white/10 p-4 rounded-xl">
                             <span className="font-bold">Total Price:</span>
-                            <span className="text-2xl font-bold text-secondary">৳ {ticket.price * bookingQty}</span>
+                            <span className="text-xl font-bold text-secondary">৳ {ticket.price * bookingQty}</span>
                         </div>
                         <div className="modal-action">
                             <button type="button" onClick={() => document.getElementById('booking_modal').close()} className="btn2">Cancel</button>
