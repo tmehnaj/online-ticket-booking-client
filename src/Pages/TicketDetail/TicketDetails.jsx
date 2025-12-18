@@ -7,6 +7,7 @@ import { motion } from 'framer-motion';
 import { FaClock, FaMapMarkerAlt, FaTicketAlt, FaUserTie } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import Container from '../../Components/Shared/Container';
+import useAuth from '../../Hooks/useAuth';
 
 const cardAnimation = {
     hidden: { opacity: 0, y: 50 },
@@ -14,6 +15,7 @@ const cardAnimation = {
 };
 
 const TicketDetails = () => {
+    const { user } = useAuth();
     const { id } = useParams();
     const axiosSecure = useAxiosSecure();
     const [bookingQty, setBookingQty] = useState(1);
@@ -62,9 +64,12 @@ const TicketDetails = () => {
             totalPrice: ticket.price * bookingQty,
             origin: ticket.origin,
             destination: ticket.destination,
+            transportType: ticket.transportType,
             departure: ticket.departure,
+            userName: user?.displayName,
+            userEmail: user?.email,
             vendorEmail: ticket.vendorEmail,
-            status: 'pending'
+            bookingStatus: 'pending'
         };
 
         try {

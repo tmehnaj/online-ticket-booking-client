@@ -11,8 +11,8 @@ const MyAddedTickets = () => {
     const { user } = useAuth();
     const axiosSecure = useAxiosSecure();
 
-    const { data: tickets = [], refetch, isPending } = useQuery({
-        queryKey: ['parcels', user.email],
+    const { data: tickets = [], refetch, isLoading } = useQuery({
+        queryKey: ['tickets', user.email],
         queryFn: async () => {
             const res = await axiosSecure.get(`/tickets/vendor?vendorEmail=${user.email}`)
             return res.data;
@@ -52,7 +52,7 @@ const MyAddedTickets = () => {
 
     }
 
-    if (isPending) {
+    if (isLoading) {
         return <Loader></Loader>
     }
 
