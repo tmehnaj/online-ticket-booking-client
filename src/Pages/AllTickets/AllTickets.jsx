@@ -29,9 +29,9 @@ const handleFilter=()=>{
     return (
        <Container>
         <div className='my-20'>
+            <title>All Tickets</title>
             <h2 className='text-dark-blue pb-12 flex items-end justify-center gap-2'>All Tickets({tickets.length}) <FaArrowRight /></h2>
-            
-            
+    
             <div>
                   <div className=' flex flex-col md:flex-row items-center justify-between gap-3'>
                 <form onSubmit={handleSearch} className=" md:mt-5   md:mb-10 flex gap-2 ">

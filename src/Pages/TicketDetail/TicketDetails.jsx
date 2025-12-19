@@ -89,7 +89,7 @@ const TicketDetails = () => {
     return (
         <Container>
             <div className='flex flex-col lg:flex-row gap-10 items-start my-30'>
-                
+                <title>Details</title>
                 {/* Image Section */}
                 <motion.div 
                     className='w-full lg:w-1/2'
