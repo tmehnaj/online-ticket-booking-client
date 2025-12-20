@@ -32,7 +32,7 @@ const Register = () => {
 
         createUser(data.email, data.password)
             .then(result => {
-                console.log("after create user", result);
+               // console.log("after create user", result);
                 //store image in formdata and get the link
                 const formData = new FormData();
                 formData.append('image', imageFile);
@@ -59,21 +59,21 @@ const Register = () => {
                             .then(res => {
                                 // console.log('users after post',res.data);
                                 if (res.data.insertedId) {
-                                    console.log('user is stored in database');
+                                   // console.log('user is stored in database');
                                 }
                             })
 
 
                         updateUserProfile(updateProfile)
                             .then(() => {
-                                console.log('user profile updated successfully');
+                               // console.log('user profile updated successfully');
                                 setUser({ ...user, ...updateProfile });
                                 setLoading(false);
                                 toast.success('registration successful!');
                                 navigate(location?.state || "/");
                             })
                             .catch(err => {
-                                console.log(err)
+                               // console.log(err)
                             })
                     })
 

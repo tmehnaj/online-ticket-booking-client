@@ -1,16 +1,150 @@
-# React + Vite
+# 🎫 TicketBari – Online Ticket Booking Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+TicketBari is a full-stack **Online Ticket Booking Platform** built with the **MERN stack**, where users can discover, book, and pay for travel tickets such as **Bus, Train, Launch, and Plane**.  
+The platform supports **role-based access** for **Users, Vendors, and Admins**, ensuring a secure and real-world booking workflow.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🌐 Live Website
+🔗 Live Link: https://your-live-site-link.com
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🎯 Project Purpose
+The purpose of this project is to demonstrate:
+- Full-stack MERN development skills
+- Role-based authentication & authorization
+- Real-world booking and payment flow
+- Clean UI/UX and responsive dashboard design
+- Secure deployment and production readiness
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 👥 User Roles
+- **User** – Browse tickets, book tickets, and make payments
+- **Vendor** – Add tickets, manage bookings, and track revenue
+- **Admin** – Approve/reject tickets, manage users, and advertise tickets
+
+---
+
+## ✨ Key Features
+
+### 🔐 Authentication & Security
+- Email & Password authentication
+- Google Social Login
+- Firebase authentication
+- JWT-protected APIs
+- Environment variable secured Firebase & MongoDB keys
+- Role-based protected routes
+- Reload-safe private routes
+
+---
+
+### 🏠 Home Page
+- Swiper.js Hero Slider
+- Advertised Tickets (Admin selected – max 6)
+- Latest Tickets section
+- Additional custom sections (Why Choose Us, Popular Routes)
+
+---
+
+### 🎟️ Ticket System
+- Admin-approved tickets only visible
+- Search tickets by **From → To**
+- Filter by transport type
+- Sort by price (Low → High / High → Low)
+- Pagination (6–9 tickets per page)
+
+---
+
+### 📄 Ticket Details (Protected)
+- Full ticket information
+- Countdown timer based on departure time
+- Book Now modal with quantity validation
+- Booking disabled if:
+  - Ticket quantity = 0
+  - Departure time has passed
+
+---
+
+### 👤 User Dashboard
+- User Profile
+- My Booked Tickets with booking status
+- Stripe Payment integration
+- Transaction History table
+
+---
+
+### 🧳 Vendor Dashboard
+- Vendor Profile
+- Add Ticket with image upload (imgbb)
+- My Added Tickets with verification status
+- Requested Bookings (Accept / Reject)
+- Revenue Overview with charts
+
+---
+
+### 🛠️ Admin Dashboard
+- Admin Profile
+- Manage Tickets (Approve / Reject)
+- Manage Users (Make Admin / Vendor, Mark Fraud)
+- Advertise Tickets (Max 6 active)
+
+---
+
+### 💳 Payment System
+- Stripe payment integration
+- Secure checkout
+- Automatic ticket quantity reduction after payment
+- Payment disabled after departure time
+
+---
+
+### 🌗 UI & UX
+- Fully responsive (Mobile / Tablet / Desktop)
+- Dark & Light mode toggle
+- Consistent color theme and typography
+- Equal-height cards and grid layouts
+- Loading spinners and error pages
+
+---
+
+## 🧰 Technologies Used
+
+### Frontend
+- React
+- React Router DOM
+- Tailwind CSS
+- DaisyUI
+- Firebase Authentication
+- Axios
+- React Hook Form
+- Swiper.js
+- Framer Motion
+- Recharts / Chart.js
+
+### Backend
+- Node.js
+- Express.js
+- MongoDB
+- JWT
+- Stripe
+- dotenv
+- cors
+
+---
+
+## 📦 NPM Packages
+- axios
+- firebase
+- react-router-dom
+- react-hook-form
+- swiper
+- framer-motion
+- stripe
+- jsonwebtoken
+- dotenv
+- cors
+
+
+

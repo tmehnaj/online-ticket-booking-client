@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import useAuth from "./useAuth";
 
 const instance = axios.create({
-    baseURL: 'http://localhost:3000/',
+    baseURL: 'https://online-ticket-booking-server-chi.vercel.app',
 })
 
 const useAxiosSecure = () => {
@@ -23,7 +23,7 @@ const useAxiosSecure = () => {
         const responseInterceptors = instance.interceptors.response.use((res)=>{
             return res;
         },(err)=>{
-            console.log(err);
+           // console.log(err);
             // if(err.status === 401 || err.status === 403){
             //     logOutUser()
             //     .then(()=>{})

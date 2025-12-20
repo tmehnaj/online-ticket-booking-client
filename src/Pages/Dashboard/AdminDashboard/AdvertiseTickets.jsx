@@ -41,7 +41,7 @@ const AdvertiseTickets = () => {
     
         const handleAdvertise = (ticket) => {
            const count = countAdvertise();
-           console.log('count inside handleaaadvertise', count);
+          // console.log('count inside handleaaadvertise', count);
            if(count < 6 )
            {
             updateAdvertiseStatus(ticket, 'advertise');

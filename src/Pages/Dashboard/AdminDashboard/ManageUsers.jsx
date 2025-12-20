@@ -39,7 +39,7 @@ const ManageUsers = () => {
                 }
             })
             .catch(err => {
-                console.log(err);
+               // console.log(err);
             })
     }
 
@@ -74,7 +74,7 @@ const ManageUsers = () => {
                         }
                     })
                     .catch(err => {
-                        console.log(err);
+                        //console.log(err);
                     })
             }
         });
@@ -100,7 +100,7 @@ const ManageUsers = () => {
                 }
             })
             .catch(err => {
-                console.log(err);
+                //console.log(err);
             })
     }
 
@@ -133,7 +133,7 @@ const ManageUsers = () => {
                         }
                     })
                     .catch(err => {
-                        console.log(err);
+                      //  console.log(err);
                     })
             }
         });
