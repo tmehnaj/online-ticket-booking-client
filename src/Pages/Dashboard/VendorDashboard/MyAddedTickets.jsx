@@ -122,7 +122,7 @@ const MyAddedTickets = () => {
                             disabled = { ticket?.status === 'rejected'? true : false }
                             className='btn2 w-1/2'>Update</button>
                             <button
-                            // disabled = { ticket?.status === 'rejected'? true : false }
+                            disabled = { ticket?.status === 'rejected'? true : false }
                                 onClick={() => handleDeleteTicket(ticket._id)}
                                 className='btn1 w-1/2'>Delete</button>
                         </div>

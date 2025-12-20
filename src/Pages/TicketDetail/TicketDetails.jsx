@@ -29,7 +29,7 @@ const TicketDetails = () => {
         },
     });
 
-    // Countdown Logic (Requirement 4)
+    // Countdown
     useEffect(() => {
         if (!ticket?.departure) return;
         const interval = setInterval(() => {
@@ -153,7 +153,7 @@ const TicketDetails = () => {
                      
                     </div>
 
-                    {/* Booking Button Logic */}
+                    {/* Booking Button */}
                     <button 
                         onClick={() => document.getElementById('booking_modal').showModal()}
                         disabled={isExpired || isOutOfStock}

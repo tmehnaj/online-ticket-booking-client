@@ -24,6 +24,8 @@ import AddTickets from "../Pages/Dashboard/VendorDashboard/AddTickets";
 import AdminRoute from "./AdminRoute";
 import VendorRoute from "./VendorRoute";
 import TicketDetails from "../Pages/TicketDetail/TicketDetails";
+import Success from "../Pages/Dashboard/UserDashboard/Payment/Success";
+import Cancelled from "../Pages/Dashboard/UserDashboard/Payment/Cancelled";
 
 export const router = createBrowserRouter([
     {
@@ -119,6 +121,14 @@ export const router = createBrowserRouter([
             {
                 path: 'revenue-overview',
                 element: <VendorRoute><RevenueOverview></RevenueOverview></VendorRoute>
+            },
+            {
+                path: 'payment-success',
+                element: <Success></Success>
+            },
+            {
+                path: 'payment-cancelled',
+                element:<Cancelled></Cancelled>
             }
         ] 
 
