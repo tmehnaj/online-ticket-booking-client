@@ -1,13 +1,15 @@
 import axios from "axios";
 import { useEffect } from "react";
 import useAuth from "./useAuth";
+import ForbiddenPage from "../Pages/Errors/ForbiddenPage";
+import { toast } from "react-toastify";
 
 // const instance = axios.create({
 //     baseURL: 'https://online-ticket-booking-server-chi.vercel.app',
 // })
 
 const instance = axios.create({
-    baseURL: 'http://localhost:3000',
+    baseURL: 'https://online-ticket-booking-server-chi.vercel.app',
 })
 
 const useAxiosSecure = () => {
@@ -28,11 +30,15 @@ const useAxiosSecure = () => {
             return res;
         },(err)=>{
            // console.log(err);
-            // if(err.status === 401 || err.status === 403){
-            //     logOutUser()
-            //     .then(()=>{})
-            //     .catch()
-            // }
+            if(err.status === 401){
+             return  toast.error('unauthorized access');
+                // logOutUser()
+                // .then(()=>{})
+                // .catch()
+            }
+            if(err.status === 403){
+               return toast.error('forbidden access');
+            }
         })
    
         return () => {

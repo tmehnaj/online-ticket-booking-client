@@ -57,7 +57,7 @@ const UpdateTicketModal = forwardRef(({ ticket, refetch }, ref) => {
                 ref.current.close(); // Closes the dialog using the ref
             }
         } catch (err) {
-            console.error(err);
+            // console.error(err);
             Swal.fire("Error", "Failed to update", "error");
         }
     };
