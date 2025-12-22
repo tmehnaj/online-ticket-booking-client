@@ -17,7 +17,7 @@ const AddTickets = () => {
             email: user?.email || '',
         }
     });
-
+   
 
     const handleAddTicket =async data => {
         const imageFile = data.photo[0]; 

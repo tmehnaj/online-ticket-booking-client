@@ -15,7 +15,7 @@ const Profile = () => {
             name: user?.displayName,
         }
     });
-
+   
 
     const handleModal = () => {
         reset({ name: user?.displayName });
