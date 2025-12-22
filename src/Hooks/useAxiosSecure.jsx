@@ -2,8 +2,12 @@ import axios from "axios";
 import { useEffect } from "react";
 import useAuth from "./useAuth";
 
+// const instance = axios.create({
+//     baseURL: 'https://online-ticket-booking-server-chi.vercel.app',
+// })
+
 const instance = axios.create({
-    baseURL: 'https://online-ticket-booking-server-chi.vercel.app',
+    baseURL: 'http://localhost:3000',
 })
 
 const useAxiosSecure = () => {

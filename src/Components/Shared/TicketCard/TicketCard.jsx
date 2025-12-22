@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 
 const TicketCard = ({ ticket }) => {
     return (
-        //    <div className="card scale bg-base-200  max-w-96 h-full hover:shadow-lg shadow-accent-content ce-y-3 justify-self-center">
+        //    <div className="card scale bg-base-200  max-w-96 h-full hover:shadow-lg shadow-base-content ce-y-3 justify-self-center">
         //         <figure className="px-1 sm:px-3 md:px-8 pt-6 md:pt-9">
         //             <img
         //                 src=''
@@ -15,12 +15,12 @@ const TicketCard = ({ ticket }) => {
         //             <h3 className="card-title text-dark-blue w-full text-left">title</h3>
 
 
-        //                  <p className='font-semibold text-accent-content text-left'>Created By: </p>
+        //                  <p className='font-semibold text-base-content text-left'>Created By: </p>
 
 
         //             <div className='flex items-center justify-between gap-2 w-full my-4'>
         //                 <div class="badge badge-secondary bg-secondary">badge</div>
-        //                 <div className="badge badge-warning text-accent-content font-bold px-8 py-3">streak</div>
+        //                 <div className="badge badge-warning text-base-content font-bold px-8 py-3">streak</div>
         //             </div>
         //             <div className='w-full'>
         //                 <Link to=''><button className='card-btn w-full flex items-center justify-center'>See Details<MdOutlineDoubleArrow /></button></Link>
@@ -28,14 +28,14 @@ const TicketCard = ({ ticket }) => {
         //         </div>
         //     </div>
 
-        <div className="card scale bg-base-200 max-w-96 h-full hover:shadow-lg shadow-accent-content justify-self-center md:justify-self-auto">
+        <div className="card scale bg-base-200 w-full max-w-[400px] h-full hover:shadow-lg shadow-base-content justify-self-center md:justify-self-auto">
             {/* Image Section */}
-            <figure className="px-4 sm:px-5 md:px-8 pt-6 md:pt-9">
+            <figure className="px-4 sm:px-5 md:px-8 pt-6">
                 <img
                     src={ticket?.ticketImageUrl}
                     alt=''
                     // Tailwind classes for size, you might need to adjust these to fit your design system
-                    className="rounded-xl h-[190px] w-[300px] lg:h-[250px] lg:w-[400px] object-cover"
+                    className="rounded-xl w-full h-[190px]  lg:h-[250px]  object-cover"
                 />
             </figure>
 
@@ -46,15 +46,15 @@ const TicketCard = ({ ticket }) => {
                 <div className='flex gap-2 items-center'><h3 className="card-title text-dark-blue w-full text-left">{ticket?.title}</h3>
                     {/* <span className='badge badge-info font-semibold'></span> */}
                     </div>
-                <p className='font-semibold text-accent-content text-left mb-2'>
+                <p className='font-semibold text-base-content text-left mb-2'>
                     Transport: <span className='font-bold text-secondary'>{ticket?.transportType}</span>
                 </p>
 
                 {/* Locations (From -> To) */}
                 <div className='flex items-center text-left text-sm font-medium mb-3'>
-                    <span className='text-accent-content mr-2'>{ticket?.origin}</span>
+                    <span className='text-base-content mr-2'>{ticket?.origin}</span>
                     <MdOutlineDoubleArrow className='text-secondary mx-1 rotate-90 sm:rotate-0' />
-                    <span className='text-accent-content ml-2'>{ticket?.destination}</span>
+                    <span className='text-base-content ml-2'>{ticket?.destination}</span>
                 </div>
 
                 {/* Price, Quantity, and Departure */}
@@ -68,7 +68,7 @@ const TicketCard = ({ ticket }) => {
                     {/* Quantity */}
                     <div className='flex flex-col items-start'>
                         <span className='text-xs text-gray-500'>Available</span>
-                        <div className="badge badge-warning text-accent-content font-bold px-4 py-3">{ticket?.quantity}</div>
+                        <div className="badge badge-warning text-base-content font-bold px-4 py-3">{ticket?.quantity}</div>
                     </div>
 
                     {/* Departure Date/Time */}
