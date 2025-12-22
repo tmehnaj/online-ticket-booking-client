@@ -9,44 +9,53 @@ import { toast } from 'react-toastify';
 const Profile = () => {
     const { user, setLoading, updateUserProfile, setUser } = useAuth();
     const { role } = useRole();
-    // const modalRef = useRef();
-    // const { register, handleSubmit, formState: { errors } } = useForm();
+    const modalRef = useRef();
+    const { register, reset, handleSubmit, formState: { errors } } = useForm({
+        defaultValues:{
+            name: user?.displayName,
+        }
+    });
 
 
-    // const handleModal = () => {
-    //     modalRef.current.showModal();
+    const handleModal = () => {
+        reset({ name: user?.displayName });
+        modalRef.current.showModal();
 
-    // }
+    }
 
-    // const handleUpdateProfile = async data => {
-    //     console.log('inside handleupdate profile', data.name);
-    //     const imageFile = data.photo[0];
-    //     let imageURl = user?.photoURL;
+    const handleUpdateProfile = async data => {
+        // console.log('inside handleupdate profile', data.name);
+        const imageFile = data.photo?.[0];
+        let imageURl = user?.photoURL;
 
-    //     try {
+        try {
+            setLoading(true);
 
-    //         if (imageFile) {
-    //             // Only call imageUpload if a file is selected
-    //             imageURl = await imageUpload(imageFile);
-    //         }
-    //         // const imageURl = await imageUpload(imageFile);
-    //         const updateProfile = {
-    //             displayName: data.name,
-    //             photoURL: imageURl,
-    //         }
+            if (imageFile) {
+                // Only call imageUpload if a file is selected
+                imageURl = await imageUpload(imageFile);
+            }
+            // const imageURl = await imageUpload(imageFile);
+            const updateProfile = {
+                displayName: data.name,
+                photoURL: imageURl,
+            }
 
-    //         await updateUserProfile(updateProfile)
-    //             .then(() => {
-    //                 setLoading(false);
-    //                 modalRef.current.close();
-    //                 toast.success('user profile updated');
-    //             });
-    //     } catch (err) {
-    //         setLoading(false);
-    //         toast.error(err?.message);
-    //     }
+            await updateUserProfile(updateProfile)
+                .then(() => {
+                    
+                    setUser({ ...user, displayName: data.name, photoURL: imageURl });
+                    toast.success('Updated Successfully!');
+                    modalRef.current.close();
+                });
+        } catch (err) {
+            // toast.error(err?.message);
+        }
+        finally{
+            setLoading(false)
+        }
 
-    // }
+    }
 
     return (
 
@@ -73,20 +82,19 @@ const Profile = () => {
 
 
                     {/* Update Button */}
-                    {/* <div className="mt-6">
+                    <div className="mt-6">
                         <button 
                         onClick={handleModal} 
                         className="btn1">
                             Update Profile
                         </button>
-                    </div> */}
+                    </div>
                 </div>
             </div>
 
 
-            {/* modal */}
 
-            {/* <dialog ref={modalRef} key={user?.email} className="modal">
+             <dialog ref={modalRef} className="modal">
                 <div className="modal-box  max-w-md p-8">
                     <form method="dialog">
                         
@@ -135,7 +143,7 @@ const Profile = () => {
 
                     </form>
                 </div>
-            </dialog> */}
+            </dialog> 
 
 
         </div>
