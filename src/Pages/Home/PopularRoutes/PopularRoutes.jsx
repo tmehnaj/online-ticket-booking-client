@@ -46,7 +46,7 @@ const PopularRoutes = () => {
                 </div>
 
                 <Link to="/all-tickets">
-                  <button className="btn2">
+                  <button className="card-btn">
                     View Tickets
                   </button>
                 </Link>

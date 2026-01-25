@@ -8,14 +8,16 @@ import Newsletter from '../../../Components/NewsLetter/NewsLetter';
 import FAQ from '../../../Components/FAQ/FAQ';
 import WhyChooseUs from '../../../Components/WhyChooseUs/WhyChooseUs';
 import PopularRoutes from '../PopularRoutes/PopularRoutes';
+import HowItWorks from '../HowItWorks/HowItWorks';
 
 const Home = () => {
     return (
         <div>
             <Slide></Slide>
    <AdvertiseSection></AdvertiseSection>
+    <PopularRoutes></PopularRoutes>
    <LatestSection></LatestSection>
-   <PopularRoutes></PopularRoutes>
+   <HowItWorks></HowItWorks>
     <WhyChooseUs></WhyChooseUs>
    <FAQ></FAQ>
    <Newsletter></Newsletter>
