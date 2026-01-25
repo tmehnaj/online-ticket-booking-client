@@ -32,11 +32,11 @@ const Navbar = () => {
   //all nav links 
   const links = <>
     <NavLink to='/'><li className="px-2 pb-0.5 border-b-2 border-transparent">Home</li></NavLink>
+     <NavLink to='/all-tickets'><li className="px-2 pb-0.5 border-b-2 border-transparent">All Tickets</li></NavLink>
     <NavLink to='/about'><li className="px-2 pb-0.5 border-b-2 border-transparent">About</li></NavLink>
     {
       user ? (
         <>
-          <NavLink to='/all-tickets'><li className="px-2 pb-0.5 border-b-2 border-transparent">All Tickets</li></NavLink>
           <NavLink to='/dashboard'><li className="px-2 pb-0.5 border-b-2 border-transparent">Dashboard</li></NavLink>
 
         </>
@@ -81,13 +81,9 @@ const Navbar = () => {
               </ul>
             </div>
             <Link to="/"><Logo></Logo></Link>
-            {/* <a className="text-xl font-medium">Book Palace</a> */}
+           
           </div>
-          {/* <div className="navbar-center hidden lg:flex">
-        <ul className="menu menu-horizontal px-1">
-        {links}
-        </ul>
-      </div> */}
+       
           <div className="navbar-end">
             <div className="navbar-center hidden lg:flex">
               <ul className="menu menu-horizontal px-1">

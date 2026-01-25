@@ -31,7 +31,6 @@ export const router = createBrowserRouter([
     {
         path: "/",
         element: <RootLayout></RootLayout>,
-        hydrateFallbackElement: <Loader></Loader>,
         children: [
             {
                 index: true,
@@ -43,15 +42,12 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'all-tickets',
-                element: <PrivateRoutes>
-                    <AllTickets></AllTickets>
-                </PrivateRoutes>
+                element: <AllTickets></AllTickets>
+
             },
             {
                 path: 'details/:id',
-                element: <PrivateRoutes>
-                    <TicketDetails></TicketDetails>
-                </PrivateRoutes>
+                element: <TicketDetails></TicketDetails>
             }
 
         ]
@@ -59,7 +55,6 @@ export const router = createBrowserRouter([
     {
         path: '/',
         element: <AuthLayout></AuthLayout>,
-        hydrateFallbackElement: <Loader></Loader>,
         children: [
             {
                 path: "login",
@@ -76,7 +71,6 @@ export const router = createBrowserRouter([
         element: <PrivateRoutes>
             <DashboardLayout></DashboardLayout>
         </PrivateRoutes>,
-        hydrateFallbackElement: <Loader></Loader>,
         children: [
             {
                 index: true,
@@ -128,9 +122,9 @@ export const router = createBrowserRouter([
             },
             {
                 path: 'payment-cancelled',
-                element:<Cancelled></Cancelled>
+                element: <Cancelled></Cancelled>
             }
-        ] 
+        ]
 
     },
     {

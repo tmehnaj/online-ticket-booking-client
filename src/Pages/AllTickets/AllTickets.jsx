@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import useAxiosSecure from '../../Hooks/useAxiosSecure';
 import { useQuery } from '@tanstack/react-query';
 import Container from '../../Components/Shared/Container';
 import { FaArrowRight, FaSearch } from 'react-icons/fa';
 import TicketCard from '../../Components/Shared/TicketCard/TicketCard';
 import Loader from '../../Components/Shared/Loader';
+import useAxios from '../../Hooks/useAxios';
 
 const AllTickets = () => {
     const [currentPage, setCurrentPage] = useState(0);
@@ -12,14 +12,13 @@ const AllTickets = () => {
     const [order, setOrder] = useState("asc");
     const [searchText, setSearchText] = useState("");
     const [transportType, setTransportType] = useState("");
-    const limit = 9;
-    
-    const axiosSecure = useAxiosSecure();
+    const limit = 8;
+    const axios = useAxios();
 
-    const { data, isLoading, isError, refetch } = useQuery({
+    const { data, isLoading } = useQuery({
         queryKey: ['tickets', currentPage, sort, order, searchText, transportType],
         queryFn: async () => {
-            const res = await axiosSecure.get(
+            const res = await axios.get(
                 `/tickets/all-tickets?limit=${limit}&skip=${currentPage * limit}&sort=${sort}&order=${order}&search=${searchText}&type=${transportType}`
             );
             return res.data; 
@@ -82,7 +81,7 @@ const AllTickets = () => {
 
                 {/* Ticket Grid */}
                 {tickets.length > 0 ? (
-                    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full justify-items-center'>
+                    <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 w-full justify-items-center'>
                         {tickets.map(ticket => (
                             <TicketCard key={ticket._id} ticket={ticket} />
                         ))}

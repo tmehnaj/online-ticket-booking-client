@@ -115,8 +115,8 @@ const AdvertiseTickets = () => {
                                    {
                                     ticket?.advertiseStatus === 'advertise' ? <button
                                         onClick={() => handleRemoveAdvertise(ticket)}
-                                        className='btn bg-secondary rounded-3xl hover:bg-[#d53f3f] whitespace-nowrap'>
-                                        Remove Advertise
+                                        className='btn bg-secondary px-5 rounded-3xl hover:bg-[#d53f3f] whitespace-nowrap'>
+                                        Remove
                                     </button> :  <button
                                         onClick={() => handleAdvertise(ticket)}
                                         className='btn bg-green-500 rounded-3xl hover:bg-green-600'>

@@ -1,5 +1,6 @@
 
-@import url('https://fonts.googleapis.com/css2?family=TASA+Orbiter:wght@400..800&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 
 @import "tailwindcss";
@@ -8,11 +9,11 @@
 
 @plugin "daisyui/theme" {
   name: "light";
-  default: true;
   /* Base background & text */
    /* soft very light red */
-  --color-base-200: #FFE5E5;  /* slightly stronger soft red */
-  --color-base-300: #FFDADA;  /* a bit deeper */
+  --color-base-100: #F3F4F6;  /* slightly stronger soft red */
+  --color-base-200: #FFFFFF;  /* slightly stronger soft red */
+  --color-base-300: #E5E7EB;  /* a bit deeper */
   --color-base-content: #1A202C; /* dark text (almost black) */
 
   /* Brand Colors */
@@ -85,6 +86,17 @@
 
 
 /* common */
+body{
+  @apply bg-base-100 text-base-content
+}
+
+h1,h2,h3,h4,h5{
+  font-family: "Montserrat", sans-serif;
+}
+p{
+  font-family: "Poppins", sans-serif;
+}
+
 h1{
   @apply font-extrabold text-3xl md:text-5xl 
 }

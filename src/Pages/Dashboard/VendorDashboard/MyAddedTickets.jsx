@@ -136,7 +136,7 @@ const MyAddedTickets = () => {
         <div className='p-10 md:p-15 lg:p-20'>
             <title>Added Tickets</title>
             <h2 className="mb-10 text-left drop-shadow-sm py-2 text-dark-blue">My Added Tickets: {tickets.length}</h2>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-5 gap-y-8'>
+            <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 gap-y-8'>
                 {tickets.map(ticket => <div key={ticket?._id} className="card scale bg-base-200 max-w-96 h-full hover:shadow-lg shadow-accent-content justify-self-center md:justify-self-auto">
                     {/* Image Section */}
                     <figure className="px-4 sm:px-5 md:px-8 pt-6 md:pt-9">

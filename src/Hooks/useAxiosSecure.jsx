@@ -4,23 +4,25 @@ import useAuth from "./useAuth";
 import ForbiddenPage from "../Pages/Errors/ForbiddenPage";
 import { toast } from "react-toastify";
 
+
+
+const instance = axios.create({
+    baseURL: 'http://localhost:3000/',
+})
+
 // const instance = axios.create({
 //     baseURL: 'https://online-ticket-booking-server-chi.vercel.app',
 // })
 
-const instance = axios.create({
-    baseURL: 'https://online-ticket-booking-server-chi.vercel.app',
-})
-
 const useAxiosSecure = () => {
-    // console.log('from axios secure')
+
     const { user, logOutUser } = useAuth();
-    // console.log('user from axios secure',user)
+   
     useEffect(() => {
-        // console.log('from axios secure useeffect')
+       
         const requestInterceptors = instance.interceptors.request.use((config) => {
            if (user?.accessToken) {
-            // console.log("Setting Auth Header:", `Bearer ${user.accessToken.substring(0, 10)}...`);
+         
         config.headers.authorization = `Bearer ${user.accessToken}`;
     }
             return config;

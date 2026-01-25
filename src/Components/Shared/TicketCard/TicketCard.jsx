@@ -28,7 +28,7 @@ const TicketCard = ({ ticket }) => {
         //         </div>
         //     </div>
 
-        <div className="card scale bg-base-200 w-full max-w-[400px] h-full hover:shadow-lg shadow-base-content justify-self-center md:justify-self-auto">
+        <div className="card scale bg-base-200 w-full max-w-[400px] h-full hover:shadow-lg shadow-base-content justify-self-center md:justify-self-auto border border-solid border-base-300 shadow-xs">
             {/* Image Section */}
             <figure className="px-4 sm:px-5 md:px-8 pt-6">
                 <img
@@ -61,14 +61,14 @@ const TicketCard = ({ ticket }) => {
                 <div className='grid grid-cols-2 gap-y-2 gap-x-4 w-full text-left text-sm'>
                     {/* Price */}
                     <div className='flex flex-col'>
-                        <span className='text-xs text-gray-500'>Price (Unit)</span>
+                       
                         <span className='font-bold text-lg text-secondary'>{ticket?.price} BDT</span>
                     </div>
 
                     {/* Quantity */}
                     <div className='flex flex-col items-start'>
-                        <span className='text-xs text-gray-500'>Available</span>
-                        <div className="badge badge-warning text-base-content font-bold px-4 py-3">{ticket?.quantity}</div>
+                       
+                        <div className="badge badge-warning text-base-content font-bold px-4 py-3">{ticket?.quantity} Seats</div>
                     </div>
 
                     {/* Departure Date/Time */}
@@ -80,9 +80,9 @@ const TicketCard = ({ ticket }) => {
 
 
                 {/* Perks Badge (Replaces old badge) */}
-                <div className='w-full my-4'>
+                {/* <div className='w-full my-4'>
                     <div className="badge badge-secondary bg-secondary text-white p-3">{ticket?.perks.join(', ')}</div>
-                </div>
+                </div> */}
 
                 {/* See Details Button */}
                 <div className='w-full'>

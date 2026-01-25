@@ -233,7 +233,8 @@ const ManageUsers = () => {
                                         </button>
                                     }
                                 </div>
-                                <div>
+                                {/* mark as fraud (vendor) */}
+                                {/* <div>
                                     {
                                         user.role === 'vendor' && <button
 
@@ -241,7 +242,7 @@ const ManageUsers = () => {
                                             <ImBlocked className='text-black h-4 w-4' />
                                         </button>
                                     }
-                                </div>
+                                </div> */}
                             </td>
                         </tr>)}
 

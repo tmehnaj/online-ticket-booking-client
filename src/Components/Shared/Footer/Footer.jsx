@@ -25,7 +25,7 @@ const Footer = () => {
     <h6 className="footer-title font-bold text-base">Quick Links</h6>
     <Link to="/" className="link link-hover text-base">Home</Link>
     <Link to='/all-tickets' className="link link-hover text-base">All Tickets</Link>
-    <Link className="link link-hover text-base">Contact Us</Link>
+    {/* <Link className="link link-hover text-base">Contact Us</Link> */}
     <Link to="/about" className="link link-hover text-base">About</Link>
   </nav>
 
