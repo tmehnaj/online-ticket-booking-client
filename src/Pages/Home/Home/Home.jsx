@@ -7,14 +7,16 @@ import Slide from '../Banner/Slide';
 import Newsletter from '../../../Components/NewsLetter/NewsLetter';
 import FAQ from '../../../Components/FAQ/FAQ';
 import WhyChooseUs from '../../../Components/WhyChooseUs/WhyChooseUs';
+import PopularRoutes from '../PopularRoutes/PopularRoutes';
 
 const Home = () => {
     return (
         <div>
             <Slide></Slide>
    <AdvertiseSection></AdvertiseSection>
-   <WhyChooseUs></WhyChooseUs>
    <LatestSection></LatestSection>
+   <PopularRoutes></PopularRoutes>
+    <WhyChooseUs></WhyChooseUs>
    <FAQ></FAQ>
    <Newsletter></Newsletter>
         </div>
