@@ -34,6 +34,7 @@ const Navbar = () => {
     <NavLink to='/'><li className="px-2 pb-0.5 border-b-2 border-transparent">Home</li></NavLink>
      <NavLink to='/all-tickets'><li className="px-2 pb-0.5 border-b-2 border-transparent">All Tickets</li></NavLink>
     <NavLink to='/about'><li className="px-2 pb-0.5 border-b-2 border-transparent">About</li></NavLink>
+    <NavLink to='/support'><li className="px-2 pb-0.5 border-b-2 border-transparent">Support</li></NavLink>
     {
       user ? (
         <>

@@ -7,7 +7,7 @@ import { toast } from "react-toastify";
 
 
 const instance = axios.create({
-    baseURL: 'http://localhost:3000/',
+    baseURL: 'https://online-ticket-booking-server-chi.vercel.app',
 })
 
 // const instance = axios.create({

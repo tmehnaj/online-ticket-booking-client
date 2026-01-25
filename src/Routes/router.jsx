@@ -26,6 +26,7 @@ import VendorRoute from "./VendorRoute";
 import TicketDetails from "../Pages/TicketDetail/TicketDetails";
 import Success from "../Pages/Dashboard/UserDashboard/Payment/Success";
 import Cancelled from "../Pages/Dashboard/UserDashboard/Payment/Cancelled";
+import Support from "../Pages/Support/Support";
 
 export const router = createBrowserRouter([
     {
@@ -39,6 +40,10 @@ export const router = createBrowserRouter([
             {
                 path: 'about',
                 element: <About></About>
+            },
+             {
+                path: 'support',
+                element: <Support></Support>
             },
             {
                 path: 'all-tickets',
